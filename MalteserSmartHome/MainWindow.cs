@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -15,6 +16,8 @@ namespace MalteserSmartHome
     {        
         private int visibleStatus = 0;
         System.Windows.Forms.Timer t = null;
+        SerialPort serialPort1;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -24,15 +27,21 @@ namespace MalteserSmartHome
             this.MinimumSize = new Size(800, 460);
 
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            StartTimer();
+            startTimer();
+
         }
 
+        private void readSerialData(object sender, EventArgs e)
+        {
 
-        private void StartTimer()
+        }
+
+        private void startTimer()
         {
             t = new System.Windows.Forms.Timer();
             t.Interval = 1000;
             t.Tick += new EventHandler(updateTimeAndDate);
+            t.Tick += new EventHandler(readSerialData);
             t.Enabled = true;
         }
 
@@ -43,7 +52,14 @@ namespace MalteserSmartHome
         }
 
         private void InitializeCustomComponents()
-        {
+        {            
+            Thread readThread = new Thread(read);
+            serialPort1 = new SerialPort();
+            serialPort1.PortName = "asd";
+            serialPort1.BaudRate = 1;
+            //todo:auskommentieren serialPort1.Open();
+            readThread.Start();
+
             //Knopf initialisierung
             btn_emergency.Location = new Point(0,0);
             btn_emergency.Width = 400;
@@ -72,8 +88,7 @@ namespace MalteserSmartHome
             gb_datetime.Location = new Point(100, 100);
             gb_datetime.Width = 600;
             gb_datetime.Height = 260;
-
-            DateTimeService DTS = new DateTimeService(this);
+            
 
             gb_air.Location = new Point(100, 100);
             gb_air.Width = 600;
@@ -168,6 +183,27 @@ namespace MalteserSmartHome
         private void MainWindow_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void read()
+        {
+            //todo:auskommentieren string serialBuffer = serialPort1.ReadExisting();
+
+            //todo:Daten aus Seriellem Buffer auswerten
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            EmergencyFire ef = new EmergencyFire(this);
+            ef.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            EmergencyWater ew = new EmergencyWater(this);
+            ew.Show();
         }
     }
 }

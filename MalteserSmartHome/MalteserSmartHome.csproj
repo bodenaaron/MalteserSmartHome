@@ -64,6 +64,18 @@
     <Compile Include="EmergencyCalling.Designer.cs">
       <DependentUpon>EmergencyCalling.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmergencyFire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmergencyFire.Designer.cs">
+      <DependentUpon>EmergencyFire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmergencyWater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmergencyWater.Designer.cs">
+      <DependentUpon>EmergencyWater.cs</DependentUpon>
+    </Compile>
     <Compile Include="FamilyCalling.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +98,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmergencyCalling.resx">
       <DependentUpon>EmergencyCalling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmergencyFire.resx">
+      <DependentUpon>EmergencyFire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmergencyWater.resx">
+      <DependentUpon>EmergencyWater.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FamilyCalling.resx">
       <DependentUpon>FamilyCalling.cs</DependentUpon>
