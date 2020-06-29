@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,6 +14,7 @@ namespace MalteserSmartHome
     public partial class MainWindow : Form
     {        
         private int visibleStatus = 0;
+        System.Windows.Forms.Timer t = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -22,6 +24,22 @@ namespace MalteserSmartHome
             this.MinimumSize = new Size(800, 460);
 
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            StartTimer();
+        }
+
+
+        private void StartTimer()
+        {
+            t = new System.Windows.Forms.Timer();
+            t.Interval = 1000;
+            t.Tick += new EventHandler(updateTimeAndDate);
+            t.Enabled = true;
+        }
+
+        private void updateTimeAndDate(object sender, EventArgs e)
+        {
+            lbl_date.Text = DateTime.Now.ToString("dddd dd.MM.yyyy");
+            lbl_time.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void InitializeCustomComponents()
@@ -54,6 +72,8 @@ namespace MalteserSmartHome
             gb_datetime.Location = new Point(100, 100);
             gb_datetime.Width = 600;
             gb_datetime.Height = 260;
+
+            DateTimeService DTS = new DateTimeService(this);
 
             gb_air.Location = new Point(100, 100);
             gb_air.Width = 600;
@@ -143,6 +163,11 @@ namespace MalteserSmartHome
                     gb_settings.Visible = true;
                     break;
             }
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

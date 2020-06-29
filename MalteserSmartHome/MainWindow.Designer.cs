@@ -127,18 +127,18 @@
             this.lbl_time.AutoSize = true;
             this.lbl_time.Location = new System.Drawing.Point(6, 47);
             this.lbl_time.Name = "lbl_time";
-            this.lbl_time.Size = new System.Drawing.Size(49, 13);
+            this.lbl_time.Size = new System.Drawing.Size(35, 13);
             this.lbl_time.TabIndex = 1;
-            this.lbl_time.Text = "22:40:10";
+            this.lbl_time.Text = "label6";
             // 
             // lbl_date
             // 
             this.lbl_date.AutoSize = true;
             this.lbl_date.Location = new System.Drawing.Point(6, 16);
             this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(106, 13);
+            this.lbl_date.Size = new System.Drawing.Size(35, 13);
             this.lbl_date.TabIndex = 0;
-            this.lbl_date.Text = "Dienstag 23.06.2020";
+            this.lbl_date.Text = "label5";
             // 
             // gb_air
             // 
@@ -205,6 +205,7 @@
             this.gb_settings.Size = new System.Drawing.Size(113, 76);
             this.gb_settings.TabIndex = 9;
             this.gb_settings.TabStop = false;
+            this.gb_settings.Visible = false;
             // 
             // label4
             // 
@@ -245,6 +246,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainWindow";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.gb_datetime.ResumeLayout(false);
             this.gb_datetime.PerformLayout();
             this.gb_air.ResumeLayout(false);
@@ -265,9 +267,7 @@
         private System.Windows.Forms.Button btn_family;
         private System.Windows.Forms.Button btn_arrow_right;
         private System.Windows.Forms.Button btn_arrow_left;
-        private System.Windows.Forms.GroupBox gb_datetime;
-        private System.Windows.Forms.Label lbl_time;
-        private System.Windows.Forms.Label lbl_date;
+        public System.Windows.Forms.GroupBox gb_datetime;        
         private System.Windows.Forms.GroupBox gb_air;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -277,5 +277,7 @@
         private System.Windows.Forms.GroupBox gb_settings;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lauter;
+        private System.Windows.Forms.Label lbl_time;
+        private System.Windows.Forms.Label lbl_date;
     }
 }
