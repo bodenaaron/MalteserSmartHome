@@ -21,6 +21,7 @@ namespace MalteserSmartHome
             this.MaximumSize = new Size(800, 460);
             this.MinimumSize = new Size(800, 460);
 
+            
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 
             this.mainWindow = mainWindow;
@@ -30,7 +31,11 @@ namespace MalteserSmartHome
         {
             btn_cancelFamilyCalling.Location = new Point(200, 360);
             btn_cancelFamilyCalling.Width = 400;
-            btn_cancelFamilyCalling.Height = 100;
+            btn_cancelFamilyCalling.Height = 120;            
+            btn_cancelFamilyCalling.Font = new System.Drawing.Font("Microsoft Tai Le", 70F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btn_cancelFamilyCalling.ForeColor = Color.Red;
+            btn_cancelFamilyCalling.BackColor = Color.White;
+            
         }
 
         private void btn_cancelFamilyCalling_Click(object sender, EventArgs e)

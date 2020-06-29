@@ -32,11 +32,29 @@ namespace MalteserSmartHome
             btn_EmergencyWater_falseAlarm.Width = 200;
             btn_EmergencyWater_falseAlarm.Height = 100;
             btn_EmergencyWater_falseAlarm.Text = "Falscher Alarm";
+            btn_EmergencyWater_falseAlarm.BackColor = Color.Blue;
+            btn_EmergencyWater_falseAlarm.FlatStyle = FlatStyle.Flat;
+            btn_EmergencyWater_falseAlarm.FlatAppearance.BorderSize = 2;
+            btn_EmergencyWater_falseAlarm.FlatAppearance.BorderColor = Color.Black;
+            btn_EmergencyWater_falseAlarm.ForeColor = Color.White;
+            btn_EmergencyWater_falseAlarm.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             btn_EmergencyWater_callFamily.Location = new Point(550, 360);
             btn_EmergencyWater_callFamily.Width = 200;
             btn_EmergencyWater_callFamily.Height = 100;
             btn_EmergencyWater_callFamily.Text = "Familie anrufen";
+            btn_EmergencyWater_callFamily.BackColor = Color.Blue;
+            btn_EmergencyWater_callFamily.FlatStyle = FlatStyle.Flat;
+            btn_EmergencyWater_callFamily.FlatAppearance.BorderSize = 2;
+            btn_EmergencyWater_callFamily.FlatAppearance.BorderColor = Color.Black;
+            btn_EmergencyWater_callFamily.ForeColor = Color.White;
+            btn_EmergencyWater_callFamily.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            lbl_EmegencyWater.Text = "Wasser festgestellt";
+            lbl_EmegencyWater.Font = new System.Drawing.Font("Microsoft Tai Le", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lbl_EmegencyWater.Location = new Point(150, 250);
+            lbl_EmegencyWater.BackColor = Color.Transparent;
+
         }
 
         private void btn_EmergencyWater_falseAlarm_Click(object sender, EventArgs e)

@@ -120,7 +120,7 @@ namespace MalteserSmartHome
         {
             if (visibleStatus == 0)
             {
-                visibleStatus = 3;
+                visibleStatus = 4;
             }
             else
             {
@@ -131,7 +131,7 @@ namespace MalteserSmartHome
 
         private void btn_arrow_right_Click(object sender, EventArgs e)
         {
-            if (visibleStatus == 3)
+            if (visibleStatus == 4)
             {
                 visibleStatus = 0;
             }
@@ -162,6 +162,7 @@ namespace MalteserSmartHome
             gb_air.Visible = false;
             gb_security.Visible = false;
             gb_settings.Visible = false;
+            gb_dev.Visible = false;
 
             switch (visibleStatus) 
             {
@@ -176,6 +177,9 @@ namespace MalteserSmartHome
                     break;
                 case 3:
                     gb_settings.Visible = true;
+                    break;
+                case 4:
+                    gb_dev.Visible = true;
                     break;
             }
         }
