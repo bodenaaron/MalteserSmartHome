@@ -127,18 +127,16 @@
             this.lbl_time.AutoSize = true;
             this.lbl_time.Location = new System.Drawing.Point(15, 59);
             this.lbl_time.Name = "lbl_time";
-            this.lbl_time.Size = new System.Drawing.Size(35, 13);
+            this.lbl_time.Size = new System.Drawing.Size(0, 13);
             this.lbl_time.TabIndex = 1;
-            this.lbl_time.Text = "label6";
             // 
             // lbl_date
             // 
             this.lbl_date.AutoSize = true;
             this.lbl_date.Location = new System.Drawing.Point(11, 18);
             this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(35, 13);
+            this.lbl_date.Size = new System.Drawing.Size(0, 13);
             this.lbl_date.TabIndex = 0;
-            this.lbl_date.Text = "label5";
             // 
             // lbl_humidity
             // 
@@ -256,7 +254,7 @@
             // 
             // btn_dev_WindowOpen
             // 
-            this.btn_dev_WindowOpen.Location = new System.Drawing.Point(199, 61);
+            this.btn_dev_WindowOpen.Location = new System.Drawing.Point(188, 61);
             this.btn_dev_WindowOpen.Name = "btn_dev_WindowOpen";
             this.btn_dev_WindowOpen.Size = new System.Drawing.Size(75, 23);
             this.btn_dev_WindowOpen.TabIndex = 12;

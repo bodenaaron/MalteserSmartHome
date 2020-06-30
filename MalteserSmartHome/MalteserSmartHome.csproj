@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionDoorClosed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActionDoorClosed.Designer.cs">
+      <DependentUpon>ActionDoorClosed.cs</DependentUpon>
+    </Compile>
     <Compile Include="ActionDoorOpen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ActionDoorOpen.Designer.cs">
       <DependentUpon>ActionDoorOpen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionWindowClosed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActionWindowClosed.Designer.cs">
+      <DependentUpon>ActionWindowClosed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActionWindowOpen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActionWindowOpen.Designer.cs">
+      <DependentUpon>ActionWindowOpen.cs</DependentUpon>
     </Compile>
     <Compile Include="AirQualityAlarm.cs">
       <SubType>Form</SubType>
@@ -75,6 +93,12 @@
     </Compile>
     <Compile Include="EmergencyCalling.Designer.cs">
       <DependentUpon>EmergencyCalling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmergencyCO2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmergencyCO2.Designer.cs">
+      <DependentUpon>EmergencyCO2.cs</DependentUpon>
     </Compile>
     <Compile Include="EmergencyFire.cs">
       <SubType>Form</SubType>

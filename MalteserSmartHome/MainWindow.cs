@@ -13,10 +13,88 @@ using System.Windows.Forms;
 namespace MalteserSmartHome
 {
     public partial class MainWindow : Form
-    {        
+    {
+        public bool WindowOpen
+        {
+            get { return windowOpen; }
+            set
+            {
+                windowOpen = value;
+
+                if (value == true)
+                {
+                    this.Hide();
+                    ActionWindowOpen wo = new ActionWindowOpen();
+                    wo.Show();
+                    Thread.Sleep(5000);
+                    wo.Hide();
+                    Show();
+                }
+                else
+                {
+                    Hide();
+                    ActionWindowClosed wc = new ActionWindowClosed();
+                    wc.Show();
+                    Thread.Sleep(5000);
+                    wc.Hide();
+                    Show();
+                }
+            }
+        }
+        private bool windowOpen;
+
+        public bool DoorOpen
+        {
+            get { return doorOpen; }
+            set
+            {
+                doorOpen = value;
+
+                if (value==true)
+                {
+                    this.Hide();
+                    ActionDoorOpen doo = new ActionDoorOpen();
+                    doo.Show();
+                    Thread.Sleep(5000);
+                    doo.Hide();
+                    Show();
+                }
+                else
+                {
+                    Hide();
+                    ActionDoorClosed dc = new ActionDoorClosed();
+                    dc.Show();
+                    Thread.Sleep(5000);
+                    dc.Hide();
+                    Show();
+                }
+            }
+        }
+        private bool doorOpen;
+
+        public double CO2
+        {
+            get { return co2; }
+            set
+            {
+                co2 = value;
+                if (value>50)
+                {
+                    this.Hide();
+                    EmergencyCO2 co2 = new EmergencyCO2();
+                    co2.Show();
+                    Thread.Sleep(5000);
+                    co2.Hide();
+                    Show();
+                }
+            }
+        }
+        private double co2;
+
         private int visibleStatus = 0;
         System.Windows.Forms.Timer t = null;
         SerialPort serialPort1;
+        
 
         public MainWindow()
         {
@@ -254,27 +332,27 @@ namespace MalteserSmartHome
 
         private void btn_dev_doorOpen_Click(object sender, EventArgs e)
         {
-
+            DoorOpen = true;
         }
 
         private void btn_dev__doorClosed_Click(object sender, EventArgs e)
         {
-
+            DoorOpen = false;
         }
 
         private void btn_dev_WindowOpen_Click(object sender, EventArgs e)
         {
-
+            WindowOpen = true;
         }
 
         private void btn_dev_WindowClosed_Click(object sender, EventArgs e)
         {
-
+            WindowOpen = false;
         }
 
         private void btn_dev_CO2Alarm_Click(object sender, EventArgs e)
         {
-
+            CO2 = 51;
         }
     }
 }
