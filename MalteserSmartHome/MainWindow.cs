@@ -64,41 +64,83 @@ namespace MalteserSmartHome
             btn_emergency.Location = new Point(0,0);
             btn_emergency.Width = 400;
             btn_emergency.Height = 100;
+            btn_emergency.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             btn_settings.Location = new Point(400, 0);
             btn_settings.Width = 400;
             btn_settings.Height = 100;
+            btn_settings.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             btn_care.Location = new Point(0, 360);
             btn_care.Width = 400;
             btn_care.Height = 100;
+            btn_care.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             btn_family.Location = new Point(400, 360);
             btn_family.Width = 400;
             btn_family.Height = 100;
+            btn_family.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            lbl_temperatur.Location = new Point(0, 50);
+            lbl_temperatur.Text = "Temperatur: 21°C";
+            lbl_humidity.Location = new Point(0, 150);
+            lbl_humidity.Text = "Luftfeuchtigkeit: 40%";
 
             btn_arrow_left.Location = new Point(0, 100);
             btn_arrow_left.Width = 100;
             btn_arrow_left.Height = 260;
+            btn_arrow_left.FlatStyle = FlatStyle.Flat;
+            btn_arrow_left.FlatAppearance.BorderSize = 0;
+            //btn_arrow_left.FlatAppearance.BorderColor = Color.Transparent;
 
             btn_arrow_right.Location = new Point(700, 100);
             btn_arrow_right.Width = 100;
             btn_arrow_right.Height = 260;
+            btn_arrow_right.FlatStyle = FlatStyle.Flat;
+            btn_arrow_right.FlatAppearance.BorderSize = 0;
+            //btn_arrow_right.FlatAppearance.BorderColor = Color.Transparent;
 
-            gb_datetime.Location = new Point(100, 100);
-            gb_datetime.Width = 600;
-            gb_datetime.Height = 260;
+            pnl_dateTime.Location = new Point(100, 100);
+            pnl_dateTime.Width = 600;
+            pnl_dateTime.Height = 260;
+            lbl_time.Font = new System.Drawing.Font("Microsoft Tai Le", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lbl_time.Location = new Point(150, 50);
+            lbl_date.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            lbl_date.Location = new Point(100, 150);
             
 
-            gb_air.Location = new Point(100, 100);
-            gb_air.Width = 600;
-            gb_air.Height = 260;
-            gb_air.Visible = false;
+            pnl_air.Location = new Point(100, 100);
+            pnl_air.Width = 600;
+            pnl_air.Height = 260;
+            pnl_air.Visible = false;
+            pnl_air.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-            gb_security.Location = new Point(100, 100);
-            gb_security.Width = 600;
-            gb_security.Height = 260;
-            gb_security.Visible = false;
+            lbl_temperatur.Location = new Point(0,50);
+            lbl_temperatur.Text = "Temperatur: 21°C";
+            lbl_humidity.Location = new Point(0, 150);
+            lbl_humidity.Text = "Luftfeuchtigkeit: 40%";
+
+
+            pnl_security.Location = new Point(100, 100);
+            pnl_security.Width = 600;
+            pnl_security.Height = 260;
+            pnl_security.Visible = false;
+            pnl_security.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            lbl_window.Location = new Point(0, 50);
+            lbl_window.Text = "Fenster geschlossen";
+            lbl_doors.Location = new Point(0, 150);
+            lbl_doors.Text = "Türen geschlossen";
+
+            pnl_dev.Location = new Point(100, 100);
+            pnl_dev.Width = 600;
+            pnl_dev.Height = 260;
+            pnl_dev.Visible = false;
+
+            pnl_settings.Location = new Point(100, 100);
+            pnl_settings.Width = 600;
+            pnl_settings.Height = 260;
+            pnl_settings.Visible = false;
 
         }
 
@@ -158,28 +200,28 @@ namespace MalteserSmartHome
 
         private void selectStatus()
         {
-            gb_datetime.Visible = false;
-            gb_air.Visible = false;
-            gb_security.Visible = false;
-            gb_settings.Visible = false;
-            gb_dev.Visible = false;
+            pnl_dateTime.Visible = false;
+            pnl_air.Visible = false;
+            pnl_security.Visible = false;
+            pnl_settings.Visible = false;
+            pnl_dev.Visible = false;
 
             switch (visibleStatus) 
             {
                 case 0:
-                    gb_datetime.Visible = true;                    
+                    pnl_dateTime.Visible = true;                    
                     break;
                 case 1:
-                    gb_air.Visible = true;
+                    pnl_air.Visible = true;
                     break;
                 case 2:
-                    gb_security.Visible = true;
+                    pnl_security.Visible = true;
                     break;
                 case 3:
-                    gb_settings.Visible = true;
+                    pnl_settings.Visible = true;
                     break;
                 case 4:
-                    gb_dev.Visible = true;
+                    pnl_dev.Visible = true;
                     break;
             }
         }
@@ -196,18 +238,43 @@ namespace MalteserSmartHome
             //todo:Daten aus Seriellem Buffer auswerten
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_dev_FireAlarm_Click(object sender, EventArgs e)
         {
             this.Hide();
             EmergencyFire ef = new EmergencyFire(this);
             ef.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_dev_WaterAlarm_Click(object sender, EventArgs e)
         {
             this.Hide();
             EmergencyWater ew = new EmergencyWater(this);
             ew.Show();
+        }
+
+        private void btn_dev_doorOpen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_dev__doorClosed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_dev_WindowOpen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_dev_WindowClosed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_dev_CO2Alarm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

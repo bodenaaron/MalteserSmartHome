@@ -52,6 +52,12 @@
     <Compile Include="ActionDoorOpen.Designer.cs">
       <DependentUpon>ActionDoorOpen.cs</DependentUpon>
     </Compile>
+    <Compile Include="AirQualityAlarm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AirQualityAlarm.Designer.cs">
+      <DependentUpon>AirQualityAlarm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CareServiceCalling.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -28,32 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.btn_emergency = new System.Windows.Forms.Button();
             this.btn_settings = new System.Windows.Forms.Button();
             this.btn_care = new System.Windows.Forms.Button();
             this.btn_family = new System.Windows.Forms.Button();
             this.btn_arrow_right = new System.Windows.Forms.Button();
             this.btn_arrow_left = new System.Windows.Forms.Button();
-            this.gb_datetime = new System.Windows.Forms.GroupBox();
             this.lbl_time = new System.Windows.Forms.Label();
             this.lbl_date = new System.Windows.Forms.Label();
-            this.gb_air = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.gb_security = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_humidity = new System.Windows.Forms.Label();
+            this.lbl_temperatur = new System.Windows.Forms.Label();
+            this.lbl_doors = new System.Windows.Forms.Label();
             this.lbl_window = new System.Windows.Forms.Label();
-            this.gb_settings = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lauter = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.gb_dev = new System.Windows.Forms.GroupBox();
-            this.gb_datetime.SuspendLayout();
-            this.gb_air.SuspendLayout();
-            this.gb_security.SuspendLayout();
-            this.gb_settings.SuspendLayout();
-            this.gb_dev.SuspendLayout();
+            this.btn_dev_FireAlarm = new System.Windows.Forms.Button();
+            this.btn_dev_WaterAlarm = new System.Windows.Forms.Button();
+            this.btn_dev_CO2Alarm = new System.Windows.Forms.Button();
+            this.btn_dev__doorClosed = new System.Windows.Forms.Button();
+            this.btn_dev_doorOpen = new System.Windows.Forms.Button();
+            this.btn_dev_WindowClosed = new System.Windows.Forms.Button();
+            this.btn_dev_WindowOpen = new System.Windows.Forms.Button();
+            this.pnl_dateTime = new System.Windows.Forms.Panel();
+            this.pnl_air = new System.Windows.Forms.Panel();
+            this.pnl_security = new System.Windows.Forms.Panel();
+            this.pnl_settings = new System.Windows.Forms.Panel();
+            this.pnl_dev = new System.Windows.Forms.Panel();
+            this.pnl_dateTime.SuspendLayout();
+            this.pnl_air.SuspendLayout();
+            this.pnl_security.SuspendLayout();
+            this.pnl_settings.SuspendLayout();
+            this.pnl_dev.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_emergency
@@ -92,44 +98,34 @@
             this.btn_family.Name = "btn_family";
             this.btn_family.Size = new System.Drawing.Size(75, 23);
             this.btn_family.TabIndex = 3;
-            this.btn_family.Text = "Familie kontaktieren";
+            this.btn_family.Text = "Familie";
             this.btn_family.UseVisualStyleBackColor = true;
             this.btn_family.Click += new System.EventHandler(this.btn_family_Click);
             // 
             // btn_arrow_right
             // 
+            this.btn_arrow_right.Image = ((System.Drawing.Image)(resources.GetObject("btn_arrow_right.Image")));
             this.btn_arrow_right.Location = new System.Drawing.Point(713, 183);
             this.btn_arrow_right.Name = "btn_arrow_right";
             this.btn_arrow_right.Size = new System.Drawing.Size(75, 23);
             this.btn_arrow_right.TabIndex = 4;
-            this.btn_arrow_right.Text = "r";
             this.btn_arrow_right.UseVisualStyleBackColor = true;
             this.btn_arrow_right.Click += new System.EventHandler(this.btn_arrow_right_Click);
             // 
             // btn_arrow_left
             // 
+            this.btn_arrow_left.Image = ((System.Drawing.Image)(resources.GetObject("btn_arrow_left.Image")));
             this.btn_arrow_left.Location = new System.Drawing.Point(12, 183);
             this.btn_arrow_left.Name = "btn_arrow_left";
             this.btn_arrow_left.Size = new System.Drawing.Size(75, 23);
             this.btn_arrow_left.TabIndex = 5;
-            this.btn_arrow_left.Text = "l";
             this.btn_arrow_left.UseVisualStyleBackColor = true;
             this.btn_arrow_left.Click += new System.EventHandler(this.btn_arrow_left_Click);
-            // 
-            // gb_datetime
-            // 
-            this.gb_datetime.Controls.Add(this.lbl_time);
-            this.gb_datetime.Controls.Add(this.lbl_date);
-            this.gb_datetime.Location = new System.Drawing.Point(163, 90);
-            this.gb_datetime.Name = "gb_datetime";
-            this.gb_datetime.Size = new System.Drawing.Size(113, 76);
-            this.gb_datetime.TabIndex = 6;
-            this.gb_datetime.TabStop = false;
             // 
             // lbl_time
             // 
             this.lbl_time.AutoSize = true;
-            this.lbl_time.Location = new System.Drawing.Point(6, 47);
+            this.lbl_time.Location = new System.Drawing.Point(15, 59);
             this.lbl_time.Name = "lbl_time";
             this.lbl_time.Size = new System.Drawing.Size(35, 13);
             this.lbl_time.TabIndex = 1;
@@ -138,83 +134,52 @@
             // lbl_date
             // 
             this.lbl_date.AutoSize = true;
-            this.lbl_date.Location = new System.Drawing.Point(6, 16);
+            this.lbl_date.Location = new System.Drawing.Point(11, 18);
             this.lbl_date.Name = "lbl_date";
             this.lbl_date.Size = new System.Drawing.Size(35, 13);
             this.lbl_date.TabIndex = 0;
             this.lbl_date.Text = "label5";
             // 
-            // gb_air
+            // lbl_humidity
             // 
-            this.gb_air.Controls.Add(this.label1);
-            this.gb_air.Controls.Add(this.label2);
-            this.gb_air.Location = new System.Drawing.Point(298, 90);
-            this.gb_air.Name = "gb_air";
-            this.gb_air.Size = new System.Drawing.Size(113, 76);
-            this.gb_air.TabIndex = 7;
-            this.gb_air.TabStop = false;
+            this.lbl_humidity.AutoSize = true;
+            this.lbl_humidity.Location = new System.Drawing.Point(3, 57);
+            this.lbl_humidity.Name = "lbl_humidity";
+            this.lbl_humidity.Size = new System.Drawing.Size(61, 13);
+            this.lbl_humidity.TabIndex = 1;
+            this.lbl_humidity.Text = "Luftfeuchte";
             // 
-            // label1
+            // lbl_temperatur
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Luftfeuchte";
+            this.lbl_temperatur.AutoSize = true;
+            this.lbl_temperatur.Location = new System.Drawing.Point(3, 26);
+            this.lbl_temperatur.Name = "lbl_temperatur";
+            this.lbl_temperatur.Size = new System.Drawing.Size(61, 13);
+            this.lbl_temperatur.TabIndex = 0;
+            this.lbl_temperatur.Text = "Temperatur";
             // 
-            // label2
+            // lbl_doors
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Temperatur";
-            // 
-            // gb_security
-            // 
-            this.gb_security.Controls.Add(this.label3);
-            this.gb_security.Controls.Add(this.lbl_window);
-            this.gb_security.Location = new System.Drawing.Point(428, 90);
-            this.gb_security.Name = "gb_security";
-            this.gb_security.Size = new System.Drawing.Size(113, 76);
-            this.gb_security.TabIndex = 8;
-            this.gb_security.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Türen";
+            this.lbl_doors.AutoSize = true;
+            this.lbl_doors.Location = new System.Drawing.Point(15, 47);
+            this.lbl_doors.Name = "lbl_doors";
+            this.lbl_doors.Size = new System.Drawing.Size(35, 13);
+            this.lbl_doors.TabIndex = 1;
+            this.lbl_doors.Text = "Türen";
             // 
             // lbl_window
             // 
             this.lbl_window.AutoSize = true;
-            this.lbl_window.Location = new System.Drawing.Point(6, 16);
+            this.lbl_window.Location = new System.Drawing.Point(15, 16);
             this.lbl_window.Name = "lbl_window";
             this.lbl_window.Size = new System.Drawing.Size(42, 13);
             this.lbl_window.TabIndex = 0;
             this.lbl_window.Text = "Fenster";
             // 
-            // gb_settings
-            // 
-            this.gb_settings.Controls.Add(this.label4);
-            this.gb_settings.Controls.Add(this.lauter);
-            this.gb_settings.Location = new System.Drawing.Point(163, 183);
-            this.gb_settings.Name = "gb_settings";
-            this.gb_settings.Size = new System.Drawing.Size(113, 76);
-            this.gb_settings.TabIndex = 9;
-            this.gb_settings.TabStop = false;
-            this.gb_settings.Visible = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 47);
+            this.label4.Location = new System.Drawing.Point(22, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 1;
@@ -223,42 +188,131 @@
             // lauter
             // 
             this.lauter.AutoSize = true;
-            this.lauter.Location = new System.Drawing.Point(6, 16);
+            this.lauter.Location = new System.Drawing.Point(22, 19);
             this.lauter.Name = "lauter";
             this.lauter.Size = new System.Drawing.Size(33, 13);
             this.lauter.TabIndex = 0;
             this.lauter.Text = "lauter";
             // 
-            // button1
+            // btn_dev_FireAlarm
             // 
-            this.button1.Location = new System.Drawing.Point(6, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Feuer";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_dev_FireAlarm.Location = new System.Drawing.Point(41, 0);
+            this.btn_dev_FireAlarm.Name = "btn_dev_FireAlarm";
+            this.btn_dev_FireAlarm.Size = new System.Drawing.Size(75, 23);
+            this.btn_dev_FireAlarm.TabIndex = 10;
+            this.btn_dev_FireAlarm.Text = "Feuer";
+            this.btn_dev_FireAlarm.UseVisualStyleBackColor = true;
+            this.btn_dev_FireAlarm.Click += new System.EventHandler(this.btn_dev_FireAlarm_Click);
             // 
-            // button2
+            // btn_dev_WaterAlarm
             // 
-            this.button2.Location = new System.Drawing.Point(6, 53);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Wasser";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_dev_WaterAlarm.Location = new System.Drawing.Point(41, 37);
+            this.btn_dev_WaterAlarm.Name = "btn_dev_WaterAlarm";
+            this.btn_dev_WaterAlarm.Size = new System.Drawing.Size(75, 23);
+            this.btn_dev_WaterAlarm.TabIndex = 11;
+            this.btn_dev_WaterAlarm.Text = "Wasser";
+            this.btn_dev_WaterAlarm.UseVisualStyleBackColor = true;
+            this.btn_dev_WaterAlarm.Click += new System.EventHandler(this.btn_dev_WaterAlarm_Click);
             // 
-            // gb_dev
+            // btn_dev_CO2Alarm
             // 
-            this.gb_dev.Controls.Add(this.button1);
-            this.gb_dev.Controls.Add(this.button2);
-            this.gb_dev.Location = new System.Drawing.Point(307, 183);
-            this.gb_dev.Name = "gb_dev";
-            this.gb_dev.Size = new System.Drawing.Size(136, 106);
-            this.gb_dev.TabIndex = 10;
-            this.gb_dev.TabStop = false;
-            this.gb_dev.Visible = false;
+            this.btn_dev_CO2Alarm.Location = new System.Drawing.Point(41, 75);
+            this.btn_dev_CO2Alarm.Name = "btn_dev_CO2Alarm";
+            this.btn_dev_CO2Alarm.Size = new System.Drawing.Size(75, 23);
+            this.btn_dev_CO2Alarm.TabIndex = 16;
+            this.btn_dev_CO2Alarm.Text = "Co2";
+            this.btn_dev_CO2Alarm.UseVisualStyleBackColor = true;
+            this.btn_dev_CO2Alarm.Click += new System.EventHandler(this.btn_dev_CO2Alarm_Click);
+            // 
+            // btn_dev__doorClosed
+            // 
+            this.btn_dev__doorClosed.Location = new System.Drawing.Point(188, 32);
+            this.btn_dev__doorClosed.Name = "btn_dev__doorClosed";
+            this.btn_dev__doorClosed.Size = new System.Drawing.Size(75, 23);
+            this.btn_dev__doorClosed.TabIndex = 15;
+            this.btn_dev__doorClosed.Text = "Tür zu";
+            this.btn_dev__doorClosed.UseVisualStyleBackColor = true;
+            this.btn_dev__doorClosed.Click += new System.EventHandler(this.btn_dev__doorClosed_Click);
+            // 
+            // btn_dev_doorOpen
+            // 
+            this.btn_dev_doorOpen.Location = new System.Drawing.Point(188, 3);
+            this.btn_dev_doorOpen.Name = "btn_dev_doorOpen";
+            this.btn_dev_doorOpen.Size = new System.Drawing.Size(75, 23);
+            this.btn_dev_doorOpen.TabIndex = 14;
+            this.btn_dev_doorOpen.Text = "Tür auf";
+            this.btn_dev_doorOpen.UseVisualStyleBackColor = true;
+            this.btn_dev_doorOpen.Click += new System.EventHandler(this.btn_dev_doorOpen_Click);
+            // 
+            // btn_dev_WindowClosed
+            // 
+            this.btn_dev_WindowClosed.Location = new System.Drawing.Point(188, 90);
+            this.btn_dev_WindowClosed.Name = "btn_dev_WindowClosed";
+            this.btn_dev_WindowClosed.Size = new System.Drawing.Size(75, 23);
+            this.btn_dev_WindowClosed.TabIndex = 13;
+            this.btn_dev_WindowClosed.Text = "Fenster zu";
+            this.btn_dev_WindowClosed.UseVisualStyleBackColor = true;
+            this.btn_dev_WindowClosed.Click += new System.EventHandler(this.btn_dev_WindowClosed_Click);
+            // 
+            // btn_dev_WindowOpen
+            // 
+            this.btn_dev_WindowOpen.Location = new System.Drawing.Point(199, 61);
+            this.btn_dev_WindowOpen.Name = "btn_dev_WindowOpen";
+            this.btn_dev_WindowOpen.Size = new System.Drawing.Size(75, 23);
+            this.btn_dev_WindowOpen.TabIndex = 12;
+            this.btn_dev_WindowOpen.Text = "Fenster  auf";
+            this.btn_dev_WindowOpen.UseVisualStyleBackColor = true;
+            this.btn_dev_WindowOpen.Click += new System.EventHandler(this.btn_dev_WindowOpen_Click);
+            // 
+            // pnl_dateTime
+            // 
+            this.pnl_dateTime.Controls.Add(this.lbl_time);
+            this.pnl_dateTime.Controls.Add(this.lbl_date);
+            this.pnl_dateTime.Location = new System.Drawing.Point(132, 77);
+            this.pnl_dateTime.Name = "pnl_dateTime";
+            this.pnl_dateTime.Size = new System.Drawing.Size(144, 89);
+            this.pnl_dateTime.TabIndex = 11;
+            // 
+            // pnl_air
+            // 
+            this.pnl_air.Controls.Add(this.lbl_humidity);
+            this.pnl_air.Controls.Add(this.lbl_temperatur);
+            this.pnl_air.Location = new System.Drawing.Point(282, 77);
+            this.pnl_air.Name = "pnl_air";
+            this.pnl_air.Size = new System.Drawing.Size(106, 73);
+            this.pnl_air.TabIndex = 12;
+            // 
+            // pnl_security
+            // 
+            this.pnl_security.Controls.Add(this.lbl_doors);
+            this.pnl_security.Controls.Add(this.lbl_window);
+            this.pnl_security.Location = new System.Drawing.Point(394, 77);
+            this.pnl_security.Name = "pnl_security";
+            this.pnl_security.Size = new System.Drawing.Size(76, 73);
+            this.pnl_security.TabIndex = 13;
+            // 
+            // pnl_settings
+            // 
+            this.pnl_settings.Controls.Add(this.label4);
+            this.pnl_settings.Controls.Add(this.lauter);
+            this.pnl_settings.Location = new System.Drawing.Point(132, 199);
+            this.pnl_settings.Name = "pnl_settings";
+            this.pnl_settings.Size = new System.Drawing.Size(98, 100);
+            this.pnl_settings.TabIndex = 14;
+            // 
+            // pnl_dev
+            // 
+            this.pnl_dev.Controls.Add(this.btn_dev_CO2Alarm);
+            this.pnl_dev.Controls.Add(this.btn_dev_doorOpen);
+            this.pnl_dev.Controls.Add(this.btn_dev__doorClosed);
+            this.pnl_dev.Controls.Add(this.btn_dev_WaterAlarm);
+            this.pnl_dev.Controls.Add(this.btn_dev_FireAlarm);
+            this.pnl_dev.Controls.Add(this.btn_dev_WindowClosed);
+            this.pnl_dev.Controls.Add(this.btn_dev_WindowOpen);
+            this.pnl_dev.Location = new System.Drawing.Point(269, 208);
+            this.pnl_dev.Name = "pnl_dev";
+            this.pnl_dev.Size = new System.Drawing.Size(336, 166);
+            this.pnl_dev.TabIndex = 15;
             // 
             // MainWindow
             // 
@@ -266,11 +320,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.gb_dev);
-            this.Controls.Add(this.gb_settings);
-            this.Controls.Add(this.gb_security);
-            this.Controls.Add(this.gb_air);
-            this.Controls.Add(this.gb_datetime);
+            this.Controls.Add(this.pnl_dev);
+            this.Controls.Add(this.pnl_settings);
+            this.Controls.Add(this.pnl_security);
+            this.Controls.Add(this.pnl_air);
+            this.Controls.Add(this.pnl_dateTime);
             this.Controls.Add(this.btn_arrow_left);
             this.Controls.Add(this.btn_arrow_right);
             this.Controls.Add(this.btn_family);
@@ -283,15 +337,15 @@
             this.Text = "MainWindow";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.gb_datetime.ResumeLayout(false);
-            this.gb_datetime.PerformLayout();
-            this.gb_air.ResumeLayout(false);
-            this.gb_air.PerformLayout();
-            this.gb_security.ResumeLayout(false);
-            this.gb_security.PerformLayout();
-            this.gb_settings.ResumeLayout(false);
-            this.gb_settings.PerformLayout();
-            this.gb_dev.ResumeLayout(false);
+            this.pnl_dateTime.ResumeLayout(false);
+            this.pnl_dateTime.PerformLayout();
+            this.pnl_air.ResumeLayout(false);
+            this.pnl_air.PerformLayout();
+            this.pnl_security.ResumeLayout(false);
+            this.pnl_security.PerformLayout();
+            this.pnl_settings.ResumeLayout(false);
+            this.pnl_settings.PerformLayout();
+            this.pnl_dev.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -304,20 +358,25 @@
         private System.Windows.Forms.Button btn_family;
         private System.Windows.Forms.Button btn_arrow_right;
         private System.Windows.Forms.Button btn_arrow_left;
-        public System.Windows.Forms.GroupBox gb_datetime;        
-        private System.Windows.Forms.GroupBox gb_air;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox gb_security;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_doors;
         private System.Windows.Forms.Label lbl_window;
-        private System.Windows.Forms.GroupBox gb_settings;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lauter;
         private System.Windows.Forms.Label lbl_time;
         private System.Windows.Forms.Label lbl_date;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.GroupBox gb_dev;
+        private System.Windows.Forms.Button btn_dev_FireAlarm;
+        private System.Windows.Forms.Button btn_dev_WaterAlarm;
+        private System.Windows.Forms.Button btn_dev__doorClosed;
+        private System.Windows.Forms.Button btn_dev_doorOpen;
+        private System.Windows.Forms.Button btn_dev_WindowClosed;
+        private System.Windows.Forms.Button btn_dev_WindowOpen;
+        private System.Windows.Forms.Button btn_dev_CO2Alarm;
+        private System.Windows.Forms.Label lbl_temperatur;
+        private System.Windows.Forms.Label lbl_humidity;
+        private System.Windows.Forms.Panel pnl_dateTime;
+        private System.Windows.Forms.Panel pnl_air;
+        private System.Windows.Forms.Panel pnl_security;
+        private System.Windows.Forms.Panel pnl_settings;
+        private System.Windows.Forms.Panel pnl_dev;
     }
 }
