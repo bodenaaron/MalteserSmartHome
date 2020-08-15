@@ -26,18 +26,18 @@ namespace MalteserSmartHome
                     this.Hide();
                     ActionWindowOpen wo = new ActionWindowOpen();
                     wo.Show();
-                    Thread.Sleep(5000);
-                    wo.Hide();
-                    Show();
+                    //Thread.Sleep(5000);
+                    //wo.Hide();
+                    //Show();
                 }
                 else
                 {
                     Hide();
                     ActionWindowClosed wc = new ActionWindowClosed();
                     wc.Show();
-                    Thread.Sleep(5000);
-                    wc.Hide();
-                    Show();
+                    //Thread.Sleep(5000);
+                    //wc.Hide();
+                    //Show();
                 }
             }
         }

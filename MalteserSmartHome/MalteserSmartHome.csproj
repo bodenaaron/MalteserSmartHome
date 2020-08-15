@@ -132,6 +132,12 @@
     <EmbeddedResource Include="ActionDoorOpen.resx">
       <DependentUpon>ActionDoorOpen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ActionWindowClosed.resx">
+      <DependentUpon>ActionWindowClosed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionWindowOpen.resx">
+      <DependentUpon>ActionWindowOpen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CareServiceCalling.resx">
       <DependentUpon>CareServiceCalling.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +199,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MalteserModellhausTuerZu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MalteserModellhausFensterAuf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MalteserModellhausFensterZu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
