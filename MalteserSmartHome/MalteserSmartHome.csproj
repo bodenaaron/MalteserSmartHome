@@ -138,6 +138,9 @@
     <EmbeddedResource Include="ActionWindowOpen.resx">
       <DependentUpon>ActionWindowOpen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AirQualityAlarm.resx">
+      <DependentUpon>AirQualityAlarm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CareServiceCalling.resx">
       <DependentUpon>CareServiceCalling.cs</DependentUpon>
     </EmbeddedResource>
