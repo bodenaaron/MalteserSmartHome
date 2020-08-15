@@ -33,16 +33,12 @@
             this.btn_settings = new System.Windows.Forms.Button();
             this.btn_care = new System.Windows.Forms.Button();
             this.btn_family = new System.Windows.Forms.Button();
-            this.btn_arrow_right = new System.Windows.Forms.Button();
-            this.btn_arrow_left = new System.Windows.Forms.Button();
             this.lbl_time = new System.Windows.Forms.Label();
             this.lbl_date = new System.Windows.Forms.Label();
             this.lbl_humidity = new System.Windows.Forms.Label();
             this.lbl_temperatur = new System.Windows.Forms.Label();
             this.lbl_doors = new System.Windows.Forms.Label();
             this.lbl_window = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lauter = new System.Windows.Forms.Label();
             this.btn_dev_FireAlarm = new System.Windows.Forms.Button();
             this.btn_dev_WaterAlarm = new System.Windows.Forms.Button();
             this.btn_dev_CO2Alarm = new System.Windows.Forms.Button();
@@ -55,11 +51,17 @@
             this.pnl_security = new System.Windows.Forms.Panel();
             this.pnl_settings = new System.Windows.Forms.Panel();
             this.pnl_dev = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_arrow_left = new System.Windows.Forms.Button();
+            this.btn_arrow_right = new System.Windows.Forms.Button();
             this.pnl_dateTime.SuspendLayout();
             this.pnl_air.SuspendLayout();
             this.pnl_security.SuspendLayout();
             this.pnl_settings.SuspendLayout();
             this.pnl_dev.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_emergency
@@ -84,7 +86,7 @@
             // 
             // btn_care
             // 
-            this.btn_care.Location = new System.Drawing.Point(12, 424);
+            this.btn_care.Location = new System.Drawing.Point(12, 415);
             this.btn_care.Name = "btn_care";
             this.btn_care.Size = new System.Drawing.Size(75, 23);
             this.btn_care.TabIndex = 2;
@@ -101,26 +103,6 @@
             this.btn_family.Text = "Familie";
             this.btn_family.UseVisualStyleBackColor = true;
             this.btn_family.Click += new System.EventHandler(this.btn_family_Click);
-            // 
-            // btn_arrow_right
-            // 
-            this.btn_arrow_right.Image = ((System.Drawing.Image)(resources.GetObject("btn_arrow_right.Image")));
-            this.btn_arrow_right.Location = new System.Drawing.Point(713, 183);
-            this.btn_arrow_right.Name = "btn_arrow_right";
-            this.btn_arrow_right.Size = new System.Drawing.Size(75, 23);
-            this.btn_arrow_right.TabIndex = 4;
-            this.btn_arrow_right.UseVisualStyleBackColor = true;
-            this.btn_arrow_right.Click += new System.EventHandler(this.btn_arrow_right_Click);
-            // 
-            // btn_arrow_left
-            // 
-            this.btn_arrow_left.Image = ((System.Drawing.Image)(resources.GetObject("btn_arrow_left.Image")));
-            this.btn_arrow_left.Location = new System.Drawing.Point(12, 183);
-            this.btn_arrow_left.Name = "btn_arrow_left";
-            this.btn_arrow_left.Size = new System.Drawing.Size(75, 23);
-            this.btn_arrow_left.TabIndex = 5;
-            this.btn_arrow_left.UseVisualStyleBackColor = true;
-            this.btn_arrow_left.Click += new System.EventHandler(this.btn_arrow_left_Click);
             // 
             // lbl_time
             // 
@@ -173,24 +155,6 @@
             this.lbl_window.Size = new System.Drawing.Size(42, 13);
             this.lbl_window.TabIndex = 0;
             this.lbl_window.Text = "Fenster";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 50);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "leiser";
-            // 
-            // lauter
-            // 
-            this.lauter.AutoSize = true;
-            this.lauter.Location = new System.Drawing.Point(22, 19);
-            this.lauter.Name = "lauter";
-            this.lauter.Size = new System.Drawing.Size(33, 13);
-            this.lauter.TabIndex = 0;
-            this.lauter.Text = "lauter";
             // 
             // btn_dev_FireAlarm
             // 
@@ -291,11 +255,12 @@
             // 
             // pnl_settings
             // 
-            this.pnl_settings.Controls.Add(this.label4);
-            this.pnl_settings.Controls.Add(this.lauter);
-            this.pnl_settings.Location = new System.Drawing.Point(132, 199);
+            this.pnl_settings.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnl_settings.Controls.Add(this.pictureBox2);
+            this.pnl_settings.Controls.Add(this.pictureBox1);
+            this.pnl_settings.Location = new System.Drawing.Point(132, 184);
             this.pnl_settings.Name = "pnl_settings";
-            this.pnl_settings.Size = new System.Drawing.Size(98, 100);
+            this.pnl_settings.Size = new System.Drawing.Size(549, 142);
             this.pnl_settings.TabIndex = 14;
             // 
             // pnl_dev
@@ -307,10 +272,52 @@
             this.pnl_dev.Controls.Add(this.btn_dev_FireAlarm);
             this.pnl_dev.Controls.Add(this.btn_dev_WindowClosed);
             this.pnl_dev.Controls.Add(this.btn_dev_WindowOpen);
-            this.pnl_dev.Location = new System.Drawing.Point(269, 208);
+            this.pnl_dev.Location = new System.Drawing.Point(269, 331);
             this.pnl_dev.Name = "pnl_dev";
-            this.pnl_dev.Size = new System.Drawing.Size(336, 166);
+            this.pnl_dev.Size = new System.Drawing.Size(388, 95);
             this.pnl_dev.TabIndex = 15;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.Image = global::MalteserSmartHome.Properties.Resources.MalteserModellhausLeiser;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(153, 132);
+            this.pictureBox2.TabIndex = 17;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.sendCommandQuieter);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.BackgroundImage = global::MalteserSmartHome.Properties.Resources.MalteserModellhausLauter;
+            this.pictureBox1.Location = new System.Drawing.Point(421, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 129);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.sendCommandLouder);
+            // 
+            // btn_arrow_left
+            // 
+            this.btn_arrow_left.Image = ((System.Drawing.Image)(resources.GetObject("btn_arrow_left.Image")));
+            this.btn_arrow_left.Location = new System.Drawing.Point(12, 183);
+            this.btn_arrow_left.Name = "btn_arrow_left";
+            this.btn_arrow_left.Size = new System.Drawing.Size(75, 23);
+            this.btn_arrow_left.TabIndex = 5;
+            this.btn_arrow_left.UseVisualStyleBackColor = true;
+            this.btn_arrow_left.Click += new System.EventHandler(this.btn_arrow_left_Click);
+            // 
+            // btn_arrow_right
+            // 
+            this.btn_arrow_right.Image = ((System.Drawing.Image)(resources.GetObject("btn_arrow_right.Image")));
+            this.btn_arrow_right.Location = new System.Drawing.Point(713, 183);
+            this.btn_arrow_right.Name = "btn_arrow_right";
+            this.btn_arrow_right.Size = new System.Drawing.Size(75, 23);
+            this.btn_arrow_right.TabIndex = 4;
+            this.btn_arrow_right.UseVisualStyleBackColor = true;
+            this.btn_arrow_right.Click += new System.EventHandler(this.btn_arrow_right_Click);
             // 
             // MainWindow
             // 
@@ -335,6 +342,7 @@
             this.Text = "MainWindow";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainWindow_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPressed);
             this.pnl_dateTime.ResumeLayout(false);
             this.pnl_dateTime.PerformLayout();
             this.pnl_air.ResumeLayout(false);
@@ -342,8 +350,9 @@
             this.pnl_security.ResumeLayout(false);
             this.pnl_security.PerformLayout();
             this.pnl_settings.ResumeLayout(false);
-            this.pnl_settings.PerformLayout();
             this.pnl_dev.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -358,8 +367,6 @@
         private System.Windows.Forms.Button btn_arrow_left;
         private System.Windows.Forms.Label lbl_doors;
         private System.Windows.Forms.Label lbl_window;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lauter;
         private System.Windows.Forms.Label lbl_time;
         private System.Windows.Forms.Label lbl_date;
         private System.Windows.Forms.Button btn_dev_FireAlarm;
@@ -376,5 +383,7 @@
         private System.Windows.Forms.Panel pnl_security;
         private System.Windows.Forms.Panel pnl_settings;
         private System.Windows.Forms.Panel pnl_dev;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,11 +23,24 @@ namespace MalteserSmartHome
 
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 
+            
+
         }
 
         private void InitializeCustomComponents()
         {
+            lbl_doorClosed.Location = new Point(250, 400);
+            lbl_doorClosed.Text = "Tür geschlossen";
+            lbl_doorClosed.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
+            pb_doorClosed.Size = new Size(300, 400);
+            pb_doorClosed.Location = new Point(250, 0);
+
+        }
+
+        public void Wait(int wait)
+        {
+            Thread.Sleep(wait);
         }
     }
 }

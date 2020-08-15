@@ -55,18 +55,18 @@ namespace MalteserSmartHome
                     this.Hide();
                     ActionDoorOpen doo = new ActionDoorOpen();
                     doo.Show();
-                    Thread.Sleep(5000);
-                    doo.Hide();
-                    Show();
+
+                    //doo.Hide();
+                    //Show();
                 }
                 else
                 {
                     Hide();
                     ActionDoorClosed dc = new ActionDoorClosed();
                     dc.Show();
-                    Thread.Sleep(5000);
-                    dc.Hide();
-                    Show();
+                    
+                    //dc.Hide();
+                    //Show();
                 }
             }
         }
@@ -108,18 +108,42 @@ namespace MalteserSmartHome
             startTimer();
 
         }
-
-        private void readSerialData(object sender, EventArgs e)
+        private void keyPressed(object sender, KeyPressEventArgs e)
         {
-
+            switch (e.KeyChar)
+            {
+                //Feuer
+                case 'F':
+                    break;
+                //Wasser
+                case 'W':
+                    break;
+                //CO2
+                case 'C':
+                    break;
+                //Tür auf
+                case 'A':
+                    break;
+                //Tür zu
+                case 'B':
+                    break;
+                //Fenster auf
+                case 'D':
+                    break;
+                //Fenser zu
+                case 'E':
+                    break;
+                default:
+                    break;
+            }
         }
+        
 
         private void startTimer()
         {
             t = new System.Windows.Forms.Timer();
             t.Interval = 1000;
-            t.Tick += new EventHandler(updateTimeAndDate);
-            t.Tick += new EventHandler(readSerialData);
+            t.Tick += new EventHandler(updateTimeAndDate);           
             t.Enabled = true;
         }
 
@@ -215,7 +239,7 @@ namespace MalteserSmartHome
             pnl_dev.Height = 260;
             pnl_dev.Visible = false;
 
-            pnl_settings.Location = new Point(100, 100);
+            pnl_settings.Location = new Point(100, 95);
             pnl_settings.Width = 600;
             pnl_settings.Height = 260;
             pnl_settings.Visible = false;
@@ -240,7 +264,7 @@ namespace MalteserSmartHome
         {
             if (visibleStatus == 0)
             {
-                visibleStatus = 4;
+                visibleStatus = 3;
             }
             else
             {
@@ -251,7 +275,7 @@ namespace MalteserSmartHome
 
         private void btn_arrow_right_Click(object sender, EventArgs e)
         {
-            if (visibleStatus == 4)
+            if (visibleStatus == 3 || visibleStatus >3)
             {
                 visibleStatus = 0;
             }
@@ -260,7 +284,7 @@ namespace MalteserSmartHome
                 visibleStatus = visibleStatus + 1;
             }
             selectStatus();
-        }
+        }        
 
         private void btn_care_Click(object sender, EventArgs e)
         {
@@ -296,10 +320,10 @@ namespace MalteserSmartHome
                     pnl_security.Visible = true;
                     break;
                 case 3:
-                    pnl_settings.Visible = true;
+                    pnl_dev.Visible = true;
                     break;
                 case 4:
-                    pnl_dev.Visible = true;
+                    pnl_settings.Visible = false;
                     break;
             }
         }
@@ -353,6 +377,16 @@ namespace MalteserSmartHome
         private void btn_dev_CO2Alarm_Click(object sender, EventArgs e)
         {
             CO2 = 51;
+        }
+
+        private void sendCommandLouder(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sendCommandQuieter(object sender, EventArgs e)
+        {
+
         }
     }
 }

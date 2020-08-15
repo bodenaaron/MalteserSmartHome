@@ -126,6 +126,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ActionDoorClosed.resx">
+      <DependentUpon>ActionDoorClosed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActionDoorOpen.resx">
+      <DependentUpon>ActionDoorOpen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CareServiceCalling.resx">
       <DependentUpon>CareServiceCalling.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +161,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -168,6 +175,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MalteserModellhausLauter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MalteserModellhausLeiser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MalteserModellhausTuerAuf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MalteserModellhausTuerAuf1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MalteserModellhausTuerZu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MalteserModellhausTuerZu1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
