@@ -80,13 +80,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 480);
+            this.ControlBox = false;
             this.Controls.Add(this.lbl_FireAlarm);
             this.Controls.Add(this.btn_EmergencyFire_callEmergencyService);
             this.Controls.Add(this.btn_EmergencyFire_callFamily);
             this.Controls.Add(this.btn_EmergencyFire_falseAlarm);
             this.Name = "EmergencyFire";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmergencyFire";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
