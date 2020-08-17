@@ -41,7 +41,7 @@ namespace MalteserSmartHome
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.mainWindow = mainWindow;
-
+            Cursor.Hide();
 
 
         }

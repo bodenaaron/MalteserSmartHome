@@ -23,14 +23,14 @@ namespace MalteserSmartHome
 
                 if (value == true)
                 {
-                    this.Hide();
+                    //this.Hide();
                     ActionWindowOpen wo = new ActionWindowOpen(this);
                     wo.Show();
                     wo.Wait();
                 }
                 else
                 {
-                    Hide();
+                    //Hide();
                     ActionWindowClosed wc = new ActionWindowClosed(this);
                     wc.Show();
                     wc.Wait();                    
@@ -48,14 +48,14 @@ namespace MalteserSmartHome
 
                 if (value==true)
                 {
-                    this.Hide();
+                    //this.Hide();
                     ActionDoorOpen doo = new ActionDoorOpen(this);
                     doo.Show();
                     doo.Wait();                    
                 }
                 else
                 {
-                    Hide();
+                    //Hide();
                     ActionDoorClosed dc = new ActionDoorClosed(this);
                     dc.Show();
                     dc.Wait();                    
@@ -72,11 +72,11 @@ namespace MalteserSmartHome
                 co2 = value;
                 if (value>50)
                 {
-                    this.Hide();
+                    //this.Hide();
                     EmergencyCO2 co2 = new EmergencyCO2();
                     co2.Show();
                     Thread.Sleep(5000);
-                    co2.Hide();
+                    co2.Close();
                     Show();
                 }
             }
@@ -98,7 +98,8 @@ namespace MalteserSmartHome
             this.TopMost = true;
             //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;            
-            startTimer();            
+            startTimer();
+            Cursor.Hide();
         }
         private void keyPressed(object sender, KeyPressEventArgs e)
         {
@@ -238,7 +239,7 @@ namespace MalteserSmartHome
 
         private void btn_emergency_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             EmergencyCalling ec = new EmergencyCalling(this);
             ec.Show();            
 
@@ -278,14 +279,14 @@ namespace MalteserSmartHome
 
         private void btn_care_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             CareServiceCalling careServiceCalling = new CareServiceCalling(this);
             careServiceCalling.Show();
         }
 
         private void btn_family_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             FamilyCalling familyCalling = new FamilyCalling(this);
             familyCalling.Show();
         }
@@ -332,14 +333,14 @@ namespace MalteserSmartHome
 
         private void btn_dev_FireAlarm_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             EmergencyFire ef = new EmergencyFire(this);
             ef.Show();
         }
 
         private void btn_dev_WaterAlarm_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             EmergencyWater ew = new EmergencyWater(this);
             ew.Show();
         }
