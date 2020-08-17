@@ -28,23 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pb_Ambulance = new System.Windows.Forms.PictureBox();
             this.lbl_Emergency = new System.Windows.Forms.Label();
             this.pb_cancelCall = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Ambulance)).BeginInit();
+            this.pb_Ambulance = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_cancelCall)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Ambulance)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pb_Ambulance
-            // 
-            this.pb_Ambulance.BackColor = System.Drawing.Color.Transparent;
-            this.pb_Ambulance.BackgroundImage = global::MalteserSmartHome.Properties.Resources.Krankenwaagen;
-            this.pb_Ambulance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_Ambulance.Location = new System.Drawing.Point(272, 106);
-            this.pb_Ambulance.Name = "pb_Ambulance";
-            this.pb_Ambulance.Size = new System.Drawing.Size(267, 200);
-            this.pb_Ambulance.TabIndex = 0;
-            this.pb_Ambulance.TabStop = false;
             // 
             // lbl_Emergency
             // 
@@ -58,14 +47,25 @@
             // pb_cancelCall
             // 
             this.pb_cancelCall.BackColor = System.Drawing.Color.Transparent;
-            this.pb_cancelCall.BackgroundImage = global::MalteserSmartHome.Properties.Resources.AuflegenKnopf;
             this.pb_cancelCall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_cancelCall.Location = new System.Drawing.Point(307, 356);
+            this.pb_cancelCall.Image = global::MalteserSmartHome.Properties.Resources.AuflegenIMG;
+            this.pb_cancelCall.Location = new System.Drawing.Point(495, 229);
             this.pb_cancelCall.Name = "pb_cancelCall";
             this.pb_cancelCall.Size = new System.Drawing.Size(100, 50);
             this.pb_cancelCall.TabIndex = 2;
             this.pb_cancelCall.TabStop = false;
             this.pb_cancelCall.Click += new System.EventHandler(this.cancelCall);
+            // 
+            // pb_Ambulance
+            // 
+            this.pb_Ambulance.BackColor = System.Drawing.Color.Transparent;
+            this.pb_Ambulance.BackgroundImage = global::MalteserSmartHome.Properties.Resources.Krankenwaagen;
+            this.pb_Ambulance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_Ambulance.Location = new System.Drawing.Point(272, 106);
+            this.pb_Ambulance.Name = "pb_Ambulance";
+            this.pb_Ambulance.Size = new System.Drawing.Size(267, 200);
+            this.pb_Ambulance.TabIndex = 0;
+            this.pb_Ambulance.TabStop = false;
             // 
             // EmergencyCalling
             // 
@@ -77,8 +77,8 @@
             this.Controls.Add(this.pb_Ambulance);
             this.Name = "EmergencyCalling";
             this.Text = "EmergencyCalling";
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Ambulance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_cancelCall)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Ambulance)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

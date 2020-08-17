@@ -50,7 +50,7 @@ namespace MalteserSmartHome
         private void InitializeCustomComponents()
         {
             lbl_WindowOpen.Location = new Point(250, 400);
-            lbl_WindowOpen.Text = "Bitte lüften";
+            lbl_WindowOpen.Text = "Fenster geöffnet";
             lbl_WindowOpen.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             pb_WindowOpen.Size = new Size(300, 400);

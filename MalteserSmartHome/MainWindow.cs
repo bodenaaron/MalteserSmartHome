@@ -27,13 +27,15 @@ namespace MalteserSmartHome
                     ActionWindowOpen wo = new ActionWindowOpen(this);
                     wo.Show();
                     wo.Wait();
+                    lbl_window.Text = "Fenster offen";
                 }
                 else
                 {
                     //Hide();
                     ActionWindowClosed wc = new ActionWindowClosed(this);
                     wc.Show();
-                    wc.Wait();                    
+                    wc.Wait();
+                    lbl_window.Text = "Fenster geschlossen";
                 }
             }
         }
@@ -51,14 +53,16 @@ namespace MalteserSmartHome
                     //this.Hide();
                     ActionDoorOpen doo = new ActionDoorOpen(this);
                     doo.Show();
-                    doo.Wait();                    
+                    doo.Wait();
+                    lbl_doors.Text = "Tür offen";
                 }
                 else
                 {
                     //Hide();
                     ActionDoorClosed dc = new ActionDoorClosed(this);
                     dc.Show();
-                    dc.Wait();                    
+                    dc.Wait();
+                    lbl_doors.Text = "Tür geschlossen";
                 }
             }
         }
@@ -100,6 +104,8 @@ namespace MalteserSmartHome
             this.WindowState = FormWindowState.Maximized;            
             startTimer();
             Cursor.Hide();
+            this.Cursor = Cursors.No;
+            Cursor.Dispose();
         }
         private void keyPressed(object sender, KeyPressEventArgs e)
         {
