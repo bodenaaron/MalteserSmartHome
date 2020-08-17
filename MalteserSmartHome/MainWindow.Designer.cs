@@ -336,10 +336,12 @@
             this.Controls.Add(this.btn_care);
             this.Controls.Add(this.btn_settings);
             this.Controls.Add(this.btn_emergency);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainWindow";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "MainWindow";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPressed);

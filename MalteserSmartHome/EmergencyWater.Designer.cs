@@ -68,10 +68,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lbl_EmegencyWater);
             this.Controls.Add(this.btn_EmergencyWater_callFamily);
             this.Controls.Add(this.btn_EmergencyWater_falseAlarm);
+            this.DoubleBuffered = true;
             this.Name = "EmergencyWater";
             this.Text = "EmergencyWater";
             this.ResumeLayout(false);

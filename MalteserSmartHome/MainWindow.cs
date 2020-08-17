@@ -96,10 +96,9 @@ namespace MalteserSmartHome
             ////this.MaximumSize = new Size(800, 480);
             ////this.MinimumSize = new Size(800, 480);
             this.TopMost = true;
-            this.WindowState = FormWindowState.Maximized;
             //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            startTimer();
-
+            this.WindowState = FormWindowState.Maximized;            
+            startTimer();            
         }
         private void keyPressed(object sender, KeyPressEventArgs e)
         {

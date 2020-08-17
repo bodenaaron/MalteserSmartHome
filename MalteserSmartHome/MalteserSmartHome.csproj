@@ -214,5 +214,14 @@
   <ItemGroup>
     <None Include="Resources\AuflegenKnopf.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Krankenschwester.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Krankenwaagen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Familie.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

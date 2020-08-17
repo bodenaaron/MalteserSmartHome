@@ -73,6 +73,36 @@ namespace MalteserSmartHome.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Familie {
+            get {
+                object obj = ResourceManager.GetObject("Familie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Krankenschwester {
+            get {
+                object obj = ResourceManager.GetObject("Krankenschwester", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Krankenwaagen {
+            get {
+                object obj = ResourceManager.GetObject("Krankenwaagen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MalteserModellhausFensterAuf {
             get {
                 object obj = ResourceManager.GetObject("MalteserModellhausFensterAuf", resourceCulture);

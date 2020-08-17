@@ -28,9 +28,17 @@ namespace MalteserSmartHome
 
         private void InitializeCustomComponents()
         {
-            pb_hangUp.Location = new Point(300, 300);
-            pb_hangUp.Width = 150;
-            pb_hangUp.Height = 150;                        
+            lbl_Family.Text = "Familie";
+            lbl_Family.Location = new Point(300,50);
+            lbl_Family.Font= new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            pb_hangUp.Location = new Point(330, 320);
+            pb_hangUp.Width = 170;
+            pb_hangUp.Height = 170;
+
+            pb_family.Location = new Point(200, 100);
+            pb_family.Width = 400;
+            pb_family.Height = 200;
             
         }
 

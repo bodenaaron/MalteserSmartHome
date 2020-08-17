@@ -28,12 +28,20 @@ namespace MalteserSmartHome
 
         private void InitializeCustomComponents()
         {
-            btn_cancelEmergencyCall.Location = new Point(200,360);
-            btn_cancelEmergencyCall.Width = 400;
-            btn_cancelEmergencyCall.Height = 100;
-        }
+            lbl_Emergency.Text="Rettungsdienst";
+            lbl_Emergency.Location = new Point(250,50);
+            lbl_Emergency.Font= new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-        private void btn_cancelEmergencyCall_Click(object sender, EventArgs e)
+            pb_Ambulance.Location = new Point(200,100);
+            pb_Ambulance.Width = 400;
+            pb_Ambulance.Height = 300;
+
+            pb_cancelCall.Location = new Point(330, 320);
+            pb_cancelCall.Width = 170;
+            pb_cancelCall.Height = 170;
+        }
+        
+        private void cancelCall(object sender, EventArgs e)
         {
             this.Hide();
             mainWindow.Show();
