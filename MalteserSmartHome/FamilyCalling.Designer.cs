@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FamilyCalling));
-            this.btn_cancelFamilyCalling = new System.Windows.Forms.Button();
+            this.pb_hangUp = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_hangUp)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_cancelFamilyCalling
+            // pb_hangUp
             // 
-            this.btn_cancelFamilyCalling.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelFamilyCalling.Image = ((System.Drawing.Image)(resources.GetObject("btn_cancelFamilyCalling.Image")));
-            this.btn_cancelFamilyCalling.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_cancelFamilyCalling.Location = new System.Drawing.Point(361, 318);
-            this.btn_cancelFamilyCalling.Name = "btn_cancelFamilyCalling";
-            this.btn_cancelFamilyCalling.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancelFamilyCalling.TabIndex = 0;
-            this.btn_cancelFamilyCalling.UseVisualStyleBackColor = true;
-            this.btn_cancelFamilyCalling.Click += new System.EventHandler(this.btn_cancelFamilyCalling_Click);
+            this.pb_hangUp.BackColor = System.Drawing.Color.Transparent;
+            this.pb_hangUp.BackgroundImage = global::MalteserSmartHome.Properties.Resources.AuflegenKnopf;
+            this.pb_hangUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_hangUp.Location = new System.Drawing.Point(316, 344);
+            this.pb_hangUp.Name = "pb_hangUp";
+            this.pb_hangUp.Size = new System.Drawing.Size(151, 94);
+            this.pb_hangUp.TabIndex = 0;
+            this.pb_hangUp.TabStop = false;
+            this.pb_hangUp.Click += new System.EventHandler(this.hangUp);
             // 
             // FamilyCalling
             // 
@@ -50,15 +51,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_cancelFamilyCalling);
+            this.Controls.Add(this.pb_hangUp);
             this.Name = "FamilyCalling";
             this.Text = "FamilyCalling";
+            ((System.ComponentModel.ISupportInitialize)(this.pb_hangUp)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btn_cancelFamilyCalling;
+        private System.Windows.Forms.PictureBox pb_hangUp;
     }
 }

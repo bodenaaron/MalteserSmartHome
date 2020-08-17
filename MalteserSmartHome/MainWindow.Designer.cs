@@ -50,18 +50,18 @@
             this.pnl_air = new System.Windows.Forms.Panel();
             this.pnl_security = new System.Windows.Forms.Panel();
             this.pnl_settings = new System.Windows.Forms.Panel();
-            this.pnl_dev = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnl_dev = new System.Windows.Forms.Panel();
             this.btn_arrow_left = new System.Windows.Forms.Button();
             this.btn_arrow_right = new System.Windows.Forms.Button();
             this.pnl_dateTime.SuspendLayout();
             this.pnl_air.SuspendLayout();
             this.pnl_security.SuspendLayout();
             this.pnl_settings.SuspendLayout();
-            this.pnl_dev.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnl_dev.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_emergency
@@ -258,24 +258,10 @@
             this.pnl_settings.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnl_settings.Controls.Add(this.pictureBox2);
             this.pnl_settings.Controls.Add(this.pictureBox1);
-            this.pnl_settings.Location = new System.Drawing.Point(132, 184);
+            this.pnl_settings.Location = new System.Drawing.Point(139, 205);
             this.pnl_settings.Name = "pnl_settings";
             this.pnl_settings.Size = new System.Drawing.Size(549, 142);
             this.pnl_settings.TabIndex = 14;
-            // 
-            // pnl_dev
-            // 
-            this.pnl_dev.Controls.Add(this.btn_dev_CO2Alarm);
-            this.pnl_dev.Controls.Add(this.btn_dev_doorOpen);
-            this.pnl_dev.Controls.Add(this.btn_dev__doorClosed);
-            this.pnl_dev.Controls.Add(this.btn_dev_WaterAlarm);
-            this.pnl_dev.Controls.Add(this.btn_dev_FireAlarm);
-            this.pnl_dev.Controls.Add(this.btn_dev_WindowClosed);
-            this.pnl_dev.Controls.Add(this.btn_dev_WindowOpen);
-            this.pnl_dev.Location = new System.Drawing.Point(269, 331);
-            this.pnl_dev.Name = "pnl_dev";
-            this.pnl_dev.Size = new System.Drawing.Size(388, 95);
-            this.pnl_dev.TabIndex = 15;
             // 
             // pictureBox2
             // 
@@ -298,6 +284,20 @@
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.sendCommandLouder);
+            // 
+            // pnl_dev
+            // 
+            this.pnl_dev.Controls.Add(this.btn_dev_CO2Alarm);
+            this.pnl_dev.Controls.Add(this.btn_dev_doorOpen);
+            this.pnl_dev.Controls.Add(this.btn_dev__doorClosed);
+            this.pnl_dev.Controls.Add(this.btn_dev_WaterAlarm);
+            this.pnl_dev.Controls.Add(this.btn_dev_FireAlarm);
+            this.pnl_dev.Controls.Add(this.btn_dev_WindowClosed);
+            this.pnl_dev.Controls.Add(this.btn_dev_WindowOpen);
+            this.pnl_dev.Location = new System.Drawing.Point(269, 331);
+            this.pnl_dev.Name = "pnl_dev";
+            this.pnl_dev.Size = new System.Drawing.Size(388, 95);
+            this.pnl_dev.TabIndex = 15;
             // 
             // btn_arrow_left
             // 
@@ -323,7 +323,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(815, 492);
             this.ControlBox = false;
             this.Controls.Add(this.pnl_dev);
             this.Controls.Add(this.pnl_settings);
@@ -350,9 +350,9 @@
             this.pnl_security.ResumeLayout(false);
             this.pnl_security.PerformLayout();
             this.pnl_settings.ResumeLayout(false);
-            this.pnl_dev.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnl_dev.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

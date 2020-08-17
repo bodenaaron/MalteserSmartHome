@@ -17,8 +17,8 @@ namespace MalteserSmartHome
             InitializeComponent();
             InitializeCustomComponents();
             //Fenstergröße an Pi Display anpassen
-            this.MaximumSize = new Size(800, 460);
-            this.MinimumSize = new Size(800, 460);
+            this.MaximumSize = new Size(800, 480);
+            this.MinimumSize = new Size(800, 480);
 
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 

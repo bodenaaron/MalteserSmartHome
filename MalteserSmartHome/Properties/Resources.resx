@@ -124,8 +124,8 @@
   <data name="MalteserModellhausLeiser" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MalteserModellhausLeiser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MalteserModellhausFensterAuf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MalteserModellhausFensterAuf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MalteserModellhausTuerZu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MalteserModellhausTuerZu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MalteserModellhausTuerZu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MalteserModellhausTuerZu1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,10 +133,13 @@
   <data name="MalteserModellhausTuerAuf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MalteserModellhausTuerAuf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MalteserModellhausTuerZu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MalteserModellhausTuerZu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MalteserModellhausFensterAuf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MalteserModellhausFensterAuf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MalteserModellhausFensterZu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MalteserModellhausFensterZu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AuflegenKnopf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AuflegenKnopf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

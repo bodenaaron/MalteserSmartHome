@@ -5,23 +5,43 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MalteserSmartHome
 {
     public partial class ActionWindowOpen : Form
+    
     {
-        public ActionWindowOpen()
+        private MainWindow mainWindow { get; set; }
+        System.Windows.Forms.Timer t = null;
+        public void Wait()
         {
+            t = new System.Windows.Forms.Timer();
+            t.Interval = 5000;
+            t.Tick += new EventHandler(kill);
+            t.Enabled = true;
+        }
+
+        private void kill(object sender, EventArgs e)
+        {
+            t.Enabled = false;
+            mainWindow.Show();
+            Hide();
+        }
+        public ActionWindowOpen(MainWindow mainWindow)
+        {
+            this.mainWindow = mainWindow;
             InitializeComponent();
             InitializeCustomComponents();
             //Fenstergröße an Pi Display anpassen
-            this.MaximumSize = new Size(800, 460);
-            this.MinimumSize = new Size(800, 460);
+            this.MaximumSize = new Size(800, 480);
+            this.MinimumSize = new Size(800, 480);
 
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 
+            
         }
 
         private void InitializeCustomComponents()
@@ -33,5 +53,7 @@ namespace MalteserSmartHome
             pb_WindowOpen.Size = new Size(300, 400);
             pb_WindowOpen.Location = new Point(250, 0);
         }
+
+        
     }
 }

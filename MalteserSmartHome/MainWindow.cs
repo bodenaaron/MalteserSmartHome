@@ -24,20 +24,16 @@ namespace MalteserSmartHome
                 if (value == true)
                 {
                     this.Hide();
-                    ActionWindowOpen wo = new ActionWindowOpen();
+                    ActionWindowOpen wo = new ActionWindowOpen(this);
                     wo.Show();
-                    //Thread.Sleep(5000);
-                    //wo.Hide();
-                    //Show();
+                    wo.Wait();
                 }
                 else
                 {
                     Hide();
-                    ActionWindowClosed wc = new ActionWindowClosed();
+                    ActionWindowClosed wc = new ActionWindowClosed(this);
                     wc.Show();
-                    //Thread.Sleep(5000);
-                    //wc.Hide();
-                    //Show();
+                    wc.Wait();                    
                 }
             }
         }
@@ -53,20 +49,16 @@ namespace MalteserSmartHome
                 if (value==true)
                 {
                     this.Hide();
-                    ActionDoorOpen doo = new ActionDoorOpen();
+                    ActionDoorOpen doo = new ActionDoorOpen(this);
                     doo.Show();
-
-                    //doo.Hide();
-                    //Show();
+                    doo.Wait();                    
                 }
                 else
                 {
                     Hide();
-                    ActionDoorClosed dc = new ActionDoorClosed();
+                    ActionDoorClosed dc = new ActionDoorClosed(this);
                     dc.Show();
-                    
-                    //dc.Hide();
-                    //Show();
+                    dc.Wait();                    
                 }
             }
         }
@@ -101,9 +93,10 @@ namespace MalteserSmartHome
             InitializeComponent();
             InitializeCustomComponents();
             //Fenstergröße an Pi Display anpassen
-            this.MaximumSize = new Size(800, 460);
-            this.MinimumSize = new Size(800, 460);
+            this.MaximumSize = new Size(800, 480);
+            this.MinimumSize = new Size(800, 480);
 
+            //this.WindowState = FormWindowState.Minimized;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             startTimer();
 
@@ -173,12 +166,12 @@ namespace MalteserSmartHome
             btn_settings.Height = 100;
             btn_settings.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-            btn_care.Location = new Point(0, 360);
+            btn_care.Location = new Point(0, 380);
             btn_care.Width = 400;
             btn_care.Height = 100;
             btn_care.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-            btn_family.Location = new Point(400, 360);
+            btn_family.Location = new Point(400, 380);
             btn_family.Width = 400;
             btn_family.Height = 100;
             btn_family.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -210,7 +203,6 @@ namespace MalteserSmartHome
             lbl_date.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lbl_date.Location = new Point(100, 150);
             
-
             pnl_air.Location = new Point(100, 100);
             pnl_air.Width = 600;
             pnl_air.Height = 260;
@@ -221,7 +213,6 @@ namespace MalteserSmartHome
             lbl_temperatur.Text = "Temperatur: 21°C";
             lbl_humidity.Location = new Point(0, 150);
             lbl_humidity.Text = "Luftfeuchtigkeit: 40%";
-
 
             pnl_security.Location = new Point(100, 100);
             pnl_security.Width = 600;

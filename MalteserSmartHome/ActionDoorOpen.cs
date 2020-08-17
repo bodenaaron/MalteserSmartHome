@@ -13,13 +13,30 @@ namespace MalteserSmartHome
 {
     public partial class ActionDoorOpen : Form
     {
-        public ActionDoorOpen()
+        private MainWindow mainWindow { get; set; }
+        System.Windows.Forms.Timer t = null;
+        public void Wait()
         {
+            t = new System.Windows.Forms.Timer();
+            t.Interval = 5000;
+            t.Tick += new EventHandler(kill);
+            t.Enabled = true;
+        }
+
+        private void kill(object sender, EventArgs e)
+        {
+            t.Enabled = false;
+            mainWindow.Show();
+            Hide();
+        }
+        public ActionDoorOpen(MainWindow mainWindow)
+        {
+            this.mainWindow = mainWindow;
             InitializeComponent();
             InitializeCustomComponents();
             //Fenstergröße an Pi Display anpassen
-            MaximumSize = new Size(800, 460);
-            MinimumSize = new Size(800, 460);
+            MaximumSize = new Size(800, 480);
+            MinimumSize = new Size(800, 480);
 
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             

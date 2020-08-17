@@ -18,8 +18,8 @@ namespace MalteserSmartHome
             InitializeComponent();
             InitializeCustomComponents();
             //Fenstergröße an Pi Display anpassen
-            this.MaximumSize = new Size(800, 460);
-            this.MinimumSize = new Size(800, 460);
+            this.MaximumSize = new Size(800, 480);
+            this.MinimumSize = new Size(800, 480);
 
             
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -29,16 +29,13 @@ namespace MalteserSmartHome
 
         private void InitializeCustomComponents()
         {
-            btn_cancelFamilyCalling.Location = new Point(200, 360);
-            btn_cancelFamilyCalling.Width = 400;
-            btn_cancelFamilyCalling.Height = 120;            
-            btn_cancelFamilyCalling.Font = new System.Drawing.Font("Microsoft Tai Le", 70F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            btn_cancelFamilyCalling.ForeColor = Color.Red;
-            btn_cancelFamilyCalling.BackColor = Color.White;
+            pb_hangUp.Location = new Point(300, 300);
+            pb_hangUp.Width = 150;
+            pb_hangUp.Height = 150;                        
             
         }
 
-        private void btn_cancelFamilyCalling_Click(object sender, EventArgs e)
+        private void hangUp(object sender, EventArgs e)
         {
             this.Hide();
             mainWindow.Show();

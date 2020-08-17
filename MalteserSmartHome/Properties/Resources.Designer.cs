@@ -63,6 +63,16 @@ namespace MalteserSmartHome.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AuflegenKnopf {
+            get {
+                object obj = ResourceManager.GetObject("AuflegenKnopf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MalteserModellhausFensterAuf {
             get {
                 object obj = ResourceManager.GetObject("MalteserModellhausFensterAuf", resourceCulture);

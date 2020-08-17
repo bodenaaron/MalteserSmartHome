@@ -15,8 +15,8 @@ namespace MalteserSmartHome
         public Dashboard()
         {
             InitializeComponent();
-            this.MaximumSize = new Size(800, 460);
-            this.MinimumSize = new Size(800, 460);
+            this.MaximumSize = new Size(800, 480);
+            this.MinimumSize = new Size(800, 480);
             btn_tabWechsel_seite_2.Font = new Font("Microsoft Sans Serif", 70, FontStyle.Bold);
             btn_tabWechsel_seite_2.TextAlign = ContentAlignment.MiddleRight;
             btn_notruf.Font = new Font("Microsoft Sans Serif", 40, FontStyle.Bold);
