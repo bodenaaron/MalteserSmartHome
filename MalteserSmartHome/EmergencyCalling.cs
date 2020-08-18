@@ -43,9 +43,7 @@ namespace MalteserSmartHome
         
         private void cancelCall(object sender, EventArgs e)
         {
-            //this.Hide();
-            //mainWindow.Show();
-            this.Close();
+            Close();
         }
     }
 }

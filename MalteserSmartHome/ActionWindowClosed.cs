@@ -40,13 +40,14 @@ namespace MalteserSmartHome
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             Cursor.Hide();
+            Wait();
 
         }
 
         private void InitializeCustomComponents()
         {
             lbl_WindowClosed.Text = "Fenster geschlossen";
-            lbl_WindowClosed.Location = new Point(250, 400);
+            lbl_WindowClosed.Location = new Point(200, 400);
             lbl_WindowClosed.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             pb_WindowClosed.Size = new Size(300, 400);

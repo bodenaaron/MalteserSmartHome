@@ -29,7 +29,6 @@ namespace MalteserSmartHome
                     //this.Hide();
                     ActionWindowOpen wo = new ActionWindowOpen();
                     wo.ShowDialog();
-                    wo.Wait();
                     lbl_window.Text = "Fenster offen";
                 }
                 else
@@ -37,7 +36,6 @@ namespace MalteserSmartHome
                     //Hide();
                     ActionWindowClosed wc = new ActionWindowClosed();
                     wc.ShowDialog();
-                    wc.Wait();
                     lbl_window.Text = "Fenster geschlossen";
                 }
             }
@@ -91,7 +89,6 @@ namespace MalteserSmartHome
                     //this.Hide();
                     ActionDoorOpen doo = new ActionDoorOpen();
                     doo.ShowDialog();
-                    doo.Wait();
                     lbl_doors.Text = "Tür offen";
                 }
                 else
@@ -99,7 +96,6 @@ namespace MalteserSmartHome
                     //Hide();
                     ActionDoorClosed dc = new ActionDoorClosed();
                     dc.ShowDialog();
-                    dc.Wait();
                     lbl_doors.Text = "Tür geschlossen";
                 }
             }
@@ -117,7 +113,6 @@ namespace MalteserSmartHome
                     //this.Hide();
                     EmergencyCO2 co2 = new EmergencyCO2();
                     co2.ShowDialog();
-                    co2.Wait();
                     Show();
                 }
             }
@@ -347,7 +342,7 @@ namespace MalteserSmartHome
 
         private void btn_settings_Click(object sender, EventArgs e)
         {
-            visibleStatus = 3;
+            visibleStatus = 4;
             selectStatus();
         }
 
@@ -414,7 +409,7 @@ namespace MalteserSmartHome
                     pnl_settings.Visible = true;
                     break;
                 case 4:
-                    pnl_dev.Visible = false;
+                    pnl_dev.Visible = true;
                     break;
             }
         }

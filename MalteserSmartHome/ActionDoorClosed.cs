@@ -41,13 +41,14 @@ namespace MalteserSmartHome
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             Cursor.Hide();
+            Wait();
 
 
         }
 
         private void InitializeCustomComponents()
         {
-            lbl_doorClosed.Location = new Point(250, 400);
+            lbl_doorClosed.Location = new Point(235, 400);
             lbl_doorClosed.Text = "Tür geschlossen";
             lbl_doorClosed.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
