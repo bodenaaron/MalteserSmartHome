@@ -11,9 +11,8 @@ using System.Windows.Forms;
 namespace MalteserSmartHome
 {
     public partial class FamilyCalling : Form
-    {
-        MainWindow mainWindow;
-        public FamilyCalling(MainWindow mainWindow)
+    {        
+        public FamilyCalling()
         {
             InitializeComponent();
             InitializeCustomComponents();
@@ -23,7 +22,6 @@ namespace MalteserSmartHome
             this.TopMost = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-            this.mainWindow = mainWindow;
             Cursor.Hide();
         }
 
@@ -45,8 +43,7 @@ namespace MalteserSmartHome
 
         private void hangUp(object sender, EventArgs e)
         {
-            this.Hide();
-            mainWindow.Show();
+            //mainWindow.Show();
             this.Close();
         }
     }

@@ -11,9 +11,8 @@ using System.Windows.Forms;
 namespace MalteserSmartHome
 {
     public partial class CareServiceCalling : Form
-    {
-        MainWindow mainWindow;
-        public CareServiceCalling(MainWindow mainWindow)
+    {        
+        public CareServiceCalling()
         {
             InitializeComponent();
             InitializeCustomComponents();
@@ -23,7 +22,6 @@ namespace MalteserSmartHome
             this.TopMost = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-            this.mainWindow = mainWindow;
             Cursor.Hide();
         }
 
@@ -48,9 +46,7 @@ namespace MalteserSmartHome
         }
 
         private void cancelCall(object sender, EventArgs e)
-        {
-            this.Hide();
-            mainWindow.Show();
+        {            
             this.Close();
         }
     }

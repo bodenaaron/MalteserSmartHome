@@ -12,9 +12,8 @@ using System.Windows.Forms;
 namespace MalteserSmartHome
 {
     public partial class EmergencyFire : Form
-    {
-        MainWindow mainWindow;
-        public EmergencyFire(MainWindow mainWindow)
+    {                
+        public EmergencyFire()
         {
             InitializeComponent();
             InitializeCustomComponents();
@@ -23,8 +22,7 @@ namespace MalteserSmartHome
             //this.MinimumSize = new Size(800, 480);
             this.TopMost = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            this.mainWindow = mainWindow;
+            this.WindowState = FormWindowState.Maximized;            
             Cursor.Hide();
         }
 
@@ -72,26 +70,21 @@ namespace MalteserSmartHome
 
         private void btn_EmergencyFire_falseAlarm_Click(object sender, EventArgs e)
         {
-            Hide();
-            mainWindow.halt = false;
-            mainWindow.Show();
             Close();
         }
 
         private void btn_EmergencyFire_callFamily_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            mainWindow.halt = false;
-            FamilyCalling fc = new FamilyCalling(mainWindow);
-            fc.Show();
+        {            
+            FamilyCalling fc = new FamilyCalling();
+            fc.ShowDialog();
+            Close();
         }
 
         private void btn_EmergencyFire_callEmergencyService_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            mainWindow.halt = false;
-            EmergencyCalling ec = new EmergencyCalling(mainWindow);
-            ec.Show();
+        {            
+            EmergencyCalling ec = new EmergencyCalling();
+            ec.ShowDialog();
+            Close();
         }
     }
 }

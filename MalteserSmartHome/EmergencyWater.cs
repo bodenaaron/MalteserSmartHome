@@ -11,9 +11,8 @@ using System.Windows.Forms;
 namespace MalteserSmartHome
 {
     public partial class EmergencyWater : Form
-    {
-        MainWindow mainWindow;
-        public EmergencyWater(MainWindow mainWindow)
+    {        
+        public EmergencyWater()
         {
             InitializeComponent();
             InitializeCustomComponents();
@@ -23,7 +22,6 @@ namespace MalteserSmartHome
             this.TopMost = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-            this.mainWindow = mainWindow;
             Cursor.Hide();
         }
 
@@ -59,16 +57,14 @@ namespace MalteserSmartHome
         }
 
         private void btn_EmergencyWater_falseAlarm_Click(object sender, EventArgs e)
-        {
-            Hide();
-            mainWindow.Show();
+        {            
             Close();
         }
 
         private void btn_EmergencyWater_callFamily_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FamilyCalling fc = new FamilyCalling(mainWindow);
+            FamilyCalling fc = new FamilyCalling();
             fc.Show();
         }
     }

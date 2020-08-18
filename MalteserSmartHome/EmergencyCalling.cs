@@ -11,9 +11,8 @@ using System.Windows.Forms;
 namespace MalteserSmartHome
 {
     public partial class EmergencyCalling : Form
-    {
-        MainWindow mainWindow;
-        public EmergencyCalling(MainWindow mainWindow)
+    {        
+        public EmergencyCalling()
         {
             InitializeComponent();
             InitializeCustomComponents();
@@ -22,8 +21,7 @@ namespace MalteserSmartHome
             //this.MinimumSize = new Size(800, 480);
             this.TopMost = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            this.mainWindow = mainWindow;
+            this.WindowState = FormWindowState.Maximized;            
             Cursor.Hide();
         }
 
@@ -44,8 +42,8 @@ namespace MalteserSmartHome
         
         private void cancelCall(object sender, EventArgs e)
         {
-            this.Hide();
-            mainWindow.Show();
+            //this.Hide();
+            //mainWindow.Show();
             this.Close();
         }
     }

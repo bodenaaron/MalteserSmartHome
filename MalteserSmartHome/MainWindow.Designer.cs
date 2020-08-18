@@ -343,8 +343,7 @@
             this.Text = "MainWindow";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPressed);
+            this.Load += new System.EventHandler(this.MainWindow_Load);            
             this.pnl_dateTime.ResumeLayout(false);
             this.pnl_dateTime.PerformLayout();
             this.pnl_air.ResumeLayout(false);

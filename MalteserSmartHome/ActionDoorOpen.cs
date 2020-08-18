@@ -13,23 +13,23 @@ namespace MalteserSmartHome
 {
     public partial class ActionDoorOpen : Form
     {
-        private MainWindow mainWindow { get; set; }
         System.Windows.Forms.Timer t = null;
         public void Wait()
         {
-            t = new System.Windows.Forms.Timer();
-            t.Interval = 5000;
+            t = new System.Windows.Forms.Timer
+            {
+                Interval = 5000
+            };
             t.Tick += new EventHandler(kill);
             t.Enabled = true;
         }
 
         private void kill(object sender, EventArgs e)
         {
-            t.Enabled = false;
-            mainWindow.Show();
-            Hide();
+            t.Enabled = false;            
+            Close();
         }
-        public ActionDoorOpen(MainWindow mainWindow)
+        public ActionDoorOpen()
         {
             InitializeComponent();
             InitializeCustomComponents();
@@ -37,7 +37,6 @@ namespace MalteserSmartHome
             this.TopMost = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-            this.mainWindow = mainWindow;
             Cursor.Hide();
 
         }

@@ -12,6 +12,21 @@ namespace MalteserSmartHome
 {
     public partial class EmergencyCO2 : Form
     {
+        System.Windows.Forms.Timer t = null;        
+        public void Wait()
+        {
+            t = new System.Windows.Forms.Timer
+            {
+                Interval = 5000
+            };
+            t.Tick += new EventHandler(kill);
+            t.Enabled = true;
+        }
+        private void kill(object sender, EventArgs e)
+        {
+            t.Enabled = false;            
+            Close();
+        }
         public EmergencyCO2()
         {
             InitializeComponent();

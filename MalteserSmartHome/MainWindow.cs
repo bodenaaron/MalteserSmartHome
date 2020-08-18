@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +15,7 @@ namespace MalteserSmartHome
 {
     public partial class MainWindow : Form
     {
-        public SerialPort port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
-        string haltmessage = "";
-        public bool halt { get; set; }
+        public SerialPort port = new SerialPort("COM4", 9600, Parity.None, 8, StopBits.One);
         public bool WindowOpen
         {
             get { return windowOpen; }
@@ -27,16 +26,16 @@ namespace MalteserSmartHome
                 if (value == true)
                 {
                     //this.Hide();
-                    ActionWindowOpen wo = new ActionWindowOpen(this);
-                    wo.Show();
+                    ActionWindowOpen wo = new ActionWindowOpen();
+                    wo.ShowDialog();
                     wo.Wait();
                     lbl_window.Text = "Fenster offen";
                 }
                 else
                 {
                     //Hide();
-                    ActionWindowClosed wc = new ActionWindowClosed(this);
-                    wc.Show();
+                    ActionWindowClosed wc = new ActionWindowClosed();
+                    wc.ShowDialog();
                     wc.Wait();
                     lbl_window.Text = "Fenster geschlossen";
                 }
@@ -54,16 +53,16 @@ namespace MalteserSmartHome
                 if (value==true)
                 {
                     //this.Hide();
-                    ActionDoorOpen doo = new ActionDoorOpen(this);
-                    doo.Show();
+                    ActionDoorOpen doo = new ActionDoorOpen();
+                    doo.ShowDialog();
                     doo.Wait();
                     lbl_doors.Text = "Tür offen";
                 }
                 else
                 {
                     //Hide();
-                    ActionDoorClosed dc = new ActionDoorClosed(this);
-                    dc.Show();
+                    ActionDoorClosed dc = new ActionDoorClosed();
+                    dc.ShowDialog();
                     dc.Wait();
                     lbl_doors.Text = "Tür geschlossen";
                 }
@@ -81,9 +80,8 @@ namespace MalteserSmartHome
                 {
                     //this.Hide();
                     EmergencyCO2 co2 = new EmergencyCO2();
-                    co2.Show();
-                    Thread.Sleep(5000);
-                    co2.Close();
+                    co2.ShowDialog();
+                    co2.Wait();
                     Show();
                 }
             }
@@ -91,8 +89,7 @@ namespace MalteserSmartHome
         private double co2;
 
         private int visibleStatus = 0;
-        System.Windows.Forms.Timer t = null;
-        SerialPort serialPort1;
+        System.Windows.Forms.Timer t = null;        
         
 
         public MainWindow()
@@ -110,139 +107,59 @@ namespace MalteserSmartHome
             this.Cursor = Cursors.No;
             Cursor.Dispose();
 
-            port.DataReceived += new SerialDataReceivedEventHandler(SerialDataRead);
+            port.DataReceived += new SerialDataReceivedEventHandler(evaluate_Data);
             port.Open();
             port.ReadTimeout = 500;
             port.WriteTimeout = 500;
 
-        }
 
-        private void SerialDataRead( object sender, SerialDataReceivedEventArgs e)
-        {
-
-
-            while (true)
-            {
-                string message = port.ReadExisting();
-
-                foreach (char c in message)
-                {
-                    switch (c)
-                    {
-                        case '1':   //Tür auf
-                            //Thread test = new Thread(openDoor);
-                            //test.Start();
-                            break;
-                        case '2':   //Tür zu
-                            //btn_dev__doorClosed_Click(null, null);
-                            break;
-                        case '3':   //Fenster auf
-                            //btn_dev_WindowOpen_Click(null, null);
-                            break;
-                        case '4':   //Fenster zu
-                            //btn_dev_WindowClosed_Click(null, null);
-                            break;
-                        case '5':   //Feuer
-                            Thread test1 = new Thread(fireAlarm);
-                            test1.Start();
-                            test1.Join();
-                            break;
-                        case '6':   //Wasser 
-                            //btn_dev_WaterAlarm_Click(null, null);
-                            break;
-                        case '7':   //CO2
-                            //btn_dev_CO2Alarm_Click(null, null);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }
-        }
-
-        private void fireAlarm()
-        {
-            btn_dev_FireAlarm_Click(null, null);
-        }
-
-        private void openDoor()
-        {
-            btn_dev_doorOpen_Click(null, null);
         }
 
         private void evaluate_Data(object sender, SerialDataReceivedEventArgs e)
         {
             string message = port.ReadExisting();
-
+            
             foreach (char c in message)
             {
-
-
                 switch (c)
                 {
                     case '1':   //Tür auf
-                        btn_dev_doorOpen_Click(null, null);
+                        DoorOpen = true;
                         break;
                     case '2':   //Tür zu
-                        btn_dev__doorClosed_Click(null, null);
+                        DoorOpen = false;
                         break;
                     case '3':   //Fenster auf
-                        btn_dev_WindowOpen_Click(null, null);
+                        WindowOpen = true;
                         break;
                     case '4':   //Fenster zu
-                        btn_dev_WindowClosed_Click(null, null);
+                        WindowOpen = false;
                         break;
                     case '5':   //Feuer
-                        btn_dev_FireAlarm_Click(null, null);
+                        EmergencyFire ef = new EmergencyFire();                        
+                        ef.ShowDialog();
                         break;
                     case '6':   //Wasser 
-                        btn_dev_WaterAlarm_Click(null, null);
+                        EmergencyWater ew = new EmergencyWater();
+                        ew.ShowDialog();
                         break;
                     case '7':   //CO2
-                        btn_dev_CO2Alarm_Click(null, null);
+                        CO2 = 51;
                         break;
                     default:
                         break;
                 }
             }
            
-        }
-
-        private void keyPressed(object sender, KeyPressEventArgs e)
-        {
-            switch (e.KeyChar)
-            {
-                //Feuer
-                case 'F':
-                    break;
-                //Wasser
-                case 'W':
-                    break;
-                //CO2
-                case 'C':
-                    break;
-                //Tür auf
-                case 'A':
-                    break;
-                //Tür zu
-                case 'B':
-                    break;
-                //Fenster auf
-                case 'D':
-                    break;
-                //Fenser zu
-                case 'E':
-                    break;
-                default:
-                    break;
-            }
-        }
+        }        
         
 
         private void startTimer()
         {
-            t = new System.Windows.Forms.Timer();
-            t.Interval = 1000;
+            t = new System.Windows.Forms.Timer
+            {
+                Interval = 1000
+            };
             t.Tick += new EventHandler(updateTimeAndDate);           
             t.Enabled = true;
         }
@@ -254,14 +171,7 @@ namespace MalteserSmartHome
         }
 
         private void InitializeCustomComponents()
-        {            
-            Thread readThread = new Thread(read);
-            serialPort1 = new SerialPort();
-            serialPort1.PortName = "asd";
-            serialPort1.BaudRate = 1;
-            //todo:auskommentieren serialPort1.Open();
-            readThread.Start();
-
+        {                                   
             //Knopf initialisierung
             btn_emergency.Location = new Point(0,0);
             btn_emergency.Width = 400;
@@ -347,8 +257,8 @@ namespace MalteserSmartHome
         private void btn_emergency_Click(object sender, EventArgs e)
         {
             //this.Hide();
-            EmergencyCalling ec = new EmergencyCalling(this);
-            ec.Show();            
+            EmergencyCalling ec = new EmergencyCalling();
+            ec.ShowDialog();            
 
         }
 
@@ -366,7 +276,7 @@ namespace MalteserSmartHome
             }
             else
             {
-                visibleStatus = visibleStatus - 1;
+                visibleStatus -= 1;
             }
             selectStatus();
         }
@@ -379,7 +289,7 @@ namespace MalteserSmartHome
             }
             else
             {
-                visibleStatus = visibleStatus + 1;
+                visibleStatus += 1;
             }
             selectStatus();
         }        
@@ -387,15 +297,15 @@ namespace MalteserSmartHome
         private void btn_care_Click(object sender, EventArgs e)
         {
             //this.Hide();
-            CareServiceCalling careServiceCalling = new CareServiceCalling(this);
-            careServiceCalling.Show();
+            CareServiceCalling careServiceCalling = new CareServiceCalling();
+            careServiceCalling.ShowDialog();
         }
 
         private void btn_family_Click(object sender, EventArgs e)
         {
             //this.Hide();
-            FamilyCalling familyCalling = new FamilyCalling(this);
-            familyCalling.Show();
+            FamilyCalling familyCalling = new FamilyCalling();
+            familyCalling.ShowDialog();
         }
 
         private void selectStatus()
@@ -430,28 +340,21 @@ namespace MalteserSmartHome
         {
 
         }
-
-        private void read()
-        {
-            //todo:auskommentieren string serialBuffer = serialPort1.ReadExisting();
-
-            //todo:Daten aus Seriellem Buffer auswerten
-        }
+        
 
         private void btn_dev_FireAlarm_Click(object sender, EventArgs e)
-        {
-            halt = true;
+        {           
             //this.Hide();
-            EmergencyFire ef = new EmergencyFire(this);
-            ef.Show();
+            EmergencyFire ef = new EmergencyFire();
+            ef.ShowDialog();
 
         }
 
         private void btn_dev_WaterAlarm_Click(object sender, EventArgs e)
         {
             //this.Hide();
-            EmergencyWater ew = new EmergencyWater(this);
-            ew.Show();
+            EmergencyWater ew = new EmergencyWater();
+            ew.ShowDialog();
         }
 
         private void btn_dev_doorOpen_Click(object sender, EventArgs e)
