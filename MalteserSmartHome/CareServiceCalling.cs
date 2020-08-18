@@ -30,10 +30,10 @@ namespace MalteserSmartHome
 
             lbl_careService.Text = "Pflegedienst";
             lbl_careService.Font= new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lbl_careService.Location = new Point(250, 50);
+            lbl_careService.Location = new Point(285, 50);
 
-            pb_careService.Size = new Size(400, 300);
-            pb_careService.Location = new Point(220, 100);
+            pb_careService.Size = new Size(300, 200);
+            pb_careService.Location = new Point(265, 120);
 
             pb_cancelCall.Location = new Point(330, 320);
             pb_cancelCall.Width = 170;

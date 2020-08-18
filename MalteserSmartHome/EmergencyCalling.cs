@@ -31,13 +31,14 @@ namespace MalteserSmartHome
             lbl_Emergency.Location = new Point(250,50);
             lbl_Emergency.Font= new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-            pb_Ambulance.Location = new Point(200,100);
+            pb_Ambulance.Location = new Point(200,120);
             pb_Ambulance.Width = 400;
-            pb_Ambulance.Height = 300;
+            pb_Ambulance.Height = 200;
 
             pb_cancelCall.Location = new Point(330, 320);
             pb_cancelCall.Width = 170;
             pb_cancelCall.Height = 170;
+
         }
         
         private void cancelCall(object sender, EventArgs e)

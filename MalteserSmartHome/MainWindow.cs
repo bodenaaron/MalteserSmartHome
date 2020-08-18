@@ -130,6 +130,8 @@ namespace MalteserSmartHome
 
         public MainWindow()
         {
+
+            
             InitializeComponent();
             InitializeCustomComponents();
 
@@ -332,6 +334,7 @@ namespace MalteserSmartHome
             pb_Sound4.Width = 50;
             pb_Sound4.Height = 200;
             pb_Sound4.BackColor = Color.Black;
+            Sound = 4;
         }
 
         private void btn_emergency_Click(object sender, EventArgs e)
