@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace MalteserSmartHome
 {
     public partial class MainWindow : Form
     {
-        public SerialPort port = new SerialPort("COM4", 9600, Parity.None, 8, StopBits.One);
+        public SerialPort port = new SerialPort("/dev/ttyUSB0", 9600, Parity.None, 8, StopBits.One);
         public bool WindowOpen
         {
             get { return windowOpen; }
@@ -43,6 +44,41 @@ namespace MalteserSmartHome
         }
         private bool windowOpen;
 
+        public int Sound
+        {
+            get { return sound; }
+            set
+            {
+                sound = value;
+                switch (value)
+                {
+                    case 1:
+                        pb_Sound1.Visible = true;
+                        pb_Sound2.Visible = false;
+                        pb_Sound3.Visible = false;
+                        pb_Sound4.Visible = false;
+                        break;
+                    case 2:
+                        pb_Sound1.Visible = true;
+                        pb_Sound2.Visible = true;
+                        pb_Sound3.Visible = false;
+                        pb_Sound4.Visible = false;
+                        break;
+                    case 3:
+                        pb_Sound1.Visible = true;
+                        pb_Sound2.Visible = true;
+                        pb_Sound3.Visible = true;
+                        pb_Sound4.Visible = false;
+                        break;
+                    case 4:
+                        pb_Sound1.Visible = true;
+                        pb_Sound2.Visible = true;
+                        pb_Sound3.Visible = true;
+                        pb_Sound4.Visible = true;
+                        break;
+                }
+            }
+        }
         public bool DoorOpen
         {
             get { return doorOpen; }
@@ -89,13 +125,16 @@ namespace MalteserSmartHome
         private double co2;
 
         private int visibleStatus = 0;
-        System.Windows.Forms.Timer t = null;        
-        
+        System.Windows.Forms.Timer t = null;
+        private int sound;
 
         public MainWindow()
         {
             InitializeComponent();
             InitializeCustomComponents();
+
+            //PrintSerialPorts ps = new PrintSerialPorts();
+            //ps.ShowDialog();
             //Fenstergröße an Pi Display anpassen
             ////this.MaximumSize = new Size(800, 480);
             ////this.MinimumSize = new Size(800, 480);
@@ -108,7 +147,15 @@ namespace MalteserSmartHome
             Cursor.Dispose();
 
             port.DataReceived += new SerialDataReceivedEventHandler(evaluate_Data);
-            port.Open();
+
+            try
+            {
+                port.Open();
+            }
+            catch(Exception e)
+            {
+
+            }
             port.ReadTimeout = 500;
             port.WriteTimeout = 500;
 
@@ -136,14 +183,20 @@ namespace MalteserSmartHome
                         WindowOpen = false;
                         break;
                     case '5':   //Feuer
-                        EmergencyFire ef = new EmergencyFire();                        
-                        ef.ShowDialog();
+                       
+                        EmergencyFire ef = new EmergencyFire();
+                        if (!ef.Focused)
+                        {
+                            ef.ShowDialog();
+                        }
+                        
+                        
                         break;
                     case '6':   //Wasser 
                         EmergencyWater ew = new EmergencyWater();
                         ew.ShowDialog();
                         break;
-                    case '7':   //CO2
+                    case '7':   //CO2h
                         CO2 = 51;
                         break;
                     default:
@@ -166,7 +219,7 @@ namespace MalteserSmartHome
 
         private void updateTimeAndDate(object sender, EventArgs e)
         {
-            lbl_date.Text = DateTime.Now.ToString("dddd dd.MM.yyyy");
+            lbl_date.Text = DateTime.Now.ToString("dddd dd.MM.yyyy", new CultureInfo("de-DE"));
             lbl_time.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
@@ -200,14 +253,14 @@ namespace MalteserSmartHome
 
             btn_arrow_left.Location = new Point(0, 100);
             btn_arrow_left.Width = 100;
-            btn_arrow_left.Height = 260;
+            btn_arrow_left.Height = 280;
             btn_arrow_left.FlatStyle = FlatStyle.Flat;
             btn_arrow_left.FlatAppearance.BorderSize = 0;
             //btn_arrow_left.FlatAppearance.BorderColor = Color.Transparent;
 
             btn_arrow_right.Location = new Point(700, 100);
             btn_arrow_right.Width = 100;
-            btn_arrow_right.Height = 260;
+            btn_arrow_right.Height = 280;
             btn_arrow_right.FlatStyle = FlatStyle.Flat;
             btn_arrow_right.FlatAppearance.BorderSize = 0;
             //btn_arrow_right.FlatAppearance.BorderColor = Color.Transparent;
@@ -247,11 +300,38 @@ namespace MalteserSmartHome
             pnl_dev.Height = 260;
             pnl_dev.Visible = false;
 
-            pnl_settings.Location = new Point(100, 95);
+            pnl_settings.Location = new Point(100, 100);
             pnl_settings.Width = 600;
             pnl_settings.Height = 260;
             pnl_settings.Visible = false;
 
+            pb_louder.Location = new Point(430, 70);
+            pb_louder.Width = 150;
+            pb_louder.Height = 150;
+
+            pb_quieter.Location = new Point(10, 80);
+            pb_quieter.Width = 150;
+            pb_quieter.Height = 130;
+
+            pb_Sound1.Location = new Point(170, 170);
+            pb_Sound1.Width = 50;
+            pb_Sound1.Height = 50;
+            pb_Sound1.BackColor = Color.Black;
+
+            pb_Sound2.Location = new Point(230, 120);
+            pb_Sound2.Width = 50;
+            pb_Sound2.Height = 100;
+            pb_Sound2.BackColor = Color.Black;
+
+            pb_Sound3.Location = new Point(290, 70);
+            pb_Sound3.Width = 50;
+            pb_Sound3.Height = 150;
+            pb_Sound3.BackColor = Color.Black;
+
+            pb_Sound4.Location = new Point(350, 20);
+            pb_Sound4.Width = 50;
+            pb_Sound4.Height = 200;
+            pb_Sound4.BackColor = Color.Black;
         }
 
         private void btn_emergency_Click(object sender, EventArgs e)
@@ -270,7 +350,7 @@ namespace MalteserSmartHome
 
         private void btn_arrow_left_Click(object sender, EventArgs e)
         {
-            if (visibleStatus == 0)
+            if (visibleStatus == 0 )
             {
                 visibleStatus = 3;
             }
@@ -283,7 +363,7 @@ namespace MalteserSmartHome
 
         private void btn_arrow_right_Click(object sender, EventArgs e)
         {
-            if (visibleStatus == 3 || visibleStatus >3)
+            if (visibleStatus ==3)
             {
                 visibleStatus = 0;
             }
@@ -328,10 +408,10 @@ namespace MalteserSmartHome
                     pnl_security.Visible = true;
                     break;
                 case 3:
-                    pnl_dev.Visible = true;
+                    pnl_settings.Visible = true;
                     break;
                 case 4:
-                    pnl_settings.Visible = false;
+                    pnl_dev.Visible = false;
                     break;
             }
         }
@@ -384,12 +464,18 @@ namespace MalteserSmartHome
 
         private void sendCommandLouder(object sender, EventArgs e)
         {
-
+            if(Sound < 4)
+            {
+                Sound++;
+            }
         }
 
         private void sendCommandQuieter(object sender, EventArgs e)
         {
-
+            if(Sound > 1)
+            {
+                Sound--;
+            }
         }
     }
 }
