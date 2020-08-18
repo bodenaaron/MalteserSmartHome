@@ -12,7 +12,23 @@ using System.Windows.Forms;
 namespace MalteserSmartHome
 {
     public partial class EmergencyFire : Form
-    {                
+    {
+        System.Windows.Forms.Timer t = null;
+        public void Wait()
+        {
+            t = new System.Windows.Forms.Timer
+            {
+                Interval = 20000
+            };
+            t.Tick += new EventHandler(kill);
+            t.Enabled = true;
+        }
+
+        private void kill(object sender, EventArgs e)
+        {
+            t.Enabled = false;
+            Close();
+        }
         public EmergencyFire()
         {
             InitializeComponent();
@@ -24,6 +40,7 @@ namespace MalteserSmartHome
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;            
             Cursor.Hide();
+            Wait();
         }
 
         private void InitializeCustomComponents()

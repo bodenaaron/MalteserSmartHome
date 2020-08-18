@@ -17,7 +17,7 @@ namespace MalteserSmartHome
         {
             t = new System.Windows.Forms.Timer
             {
-                Interval = 5000
+                Interval = 20000
             };
             t.Tick += new EventHandler(kill);
             t.Enabled = true;
@@ -38,7 +38,7 @@ namespace MalteserSmartHome
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             Cursor.Hide();
-
+            Wait();
         }
 
         private void InitializeCustomComponents()

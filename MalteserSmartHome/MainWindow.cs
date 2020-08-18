@@ -199,6 +199,13 @@ namespace MalteserSmartHome
                     case '7':   //CO2h
                         CO2 = 51;
                         break;
+                    case '8':
+                        AirQualityAlarm aq = new AirQualityAlarm();
+                        if (!aq.Focused)
+                        {
+                            aq.ShowDialog();
+                        }
+                        break;
                     default:
                         break;
                 }

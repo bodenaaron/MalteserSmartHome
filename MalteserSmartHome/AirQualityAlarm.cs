@@ -47,7 +47,7 @@ namespace MalteserSmartHome
         {
 
             lbl_AirQuality.Location = new Point(250, 400);
-            lbl_AirQuality.Text = "Fenster geöffnet";
+            lbl_AirQuality.Text = "Bitte lüften";
             lbl_AirQuality.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             pb_AirQualityOpenWindow.Size = new Size(300, 400);
