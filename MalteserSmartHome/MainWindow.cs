@@ -24,14 +24,14 @@ namespace MalteserSmartHome
             {
                 windowOpen = value;
 
-                if (value == true)
+                if (value == true&&value!=windowOpen)
                 {
                     //this.Hide();
                     ActionWindowOpen wo = new ActionWindowOpen();
                     wo.ShowDialog();
                     lbl_window.Text = "Fenster offen";
                 }
-                else
+                else if(value==false&&value!=windowOpen)
                 {
                     //Hide();
                     ActionWindowClosed wc = new ActionWindowClosed();
@@ -84,14 +84,14 @@ namespace MalteserSmartHome
             {
                 doorOpen = value;
 
-                if (value==true)
+                if (value==true&&value!=doorOpen)
                 {
                     //this.Hide();
                     ActionDoorOpen doo = new ActionDoorOpen();
                     doo.ShowDialog();
                     lbl_doors.Text = "Tür offen";
                 }
-                else
+                else if(value==false&&value!=doorOpen)
                 {
                     //Hide();
                     ActionDoorClosed dc = new ActionDoorClosed();
@@ -191,7 +191,10 @@ namespace MalteserSmartHome
                         break;
                     case '6':   //Wasser 
                         EmergencyWater ew = new EmergencyWater();
-                        ew.ShowDialog();
+                        if (!ew.Focused)
+                        {
+                            ew.ShowDialog();
+                        }
                         break;
                     case '7':   //CO2h
                         CO2 = 51;
