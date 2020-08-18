@@ -73,6 +73,7 @@ namespace MalteserSmartHome
         private void btn_EmergencyFire_falseAlarm_Click(object sender, EventArgs e)
         {
             Hide();
+            mainWindow.halt = false;
             mainWindow.Show();
             Close();
         }
@@ -80,6 +81,7 @@ namespace MalteserSmartHome
         private void btn_EmergencyFire_callFamily_Click(object sender, EventArgs e)
         {
             this.Hide();
+            mainWindow.halt = false;
             FamilyCalling fc = new FamilyCalling(mainWindow);
             fc.Show();
         }
@@ -87,6 +89,7 @@ namespace MalteserSmartHome
         private void btn_EmergencyFire_callEmergencyService_Click(object sender, EventArgs e)
         {
             this.Hide();
+            mainWindow.halt = false;
             EmergencyCalling ec = new EmergencyCalling(mainWindow);
             ec.Show();
         }

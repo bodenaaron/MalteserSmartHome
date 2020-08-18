@@ -14,6 +14,9 @@ namespace MalteserSmartHome
 {
     public partial class MainWindow : Form
     {
+        public SerialPort port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
+        string haltmessage = "";
+        public bool halt { get; set; }
         public bool WindowOpen
         {
             get { return windowOpen; }
@@ -106,7 +109,105 @@ namespace MalteserSmartHome
             Cursor.Hide();
             this.Cursor = Cursors.No;
             Cursor.Dispose();
+
+            port.DataReceived += new SerialDataReceivedEventHandler(SerialDataRead);
+            port.Open();
+            port.ReadTimeout = 500;
+            port.WriteTimeout = 500;
+
         }
+
+        private void SerialDataRead( object sender, SerialDataReceivedEventArgs e)
+        {
+
+
+            while (true)
+            {
+                string message = port.ReadExisting();
+
+                foreach (char c in message)
+                {
+                    switch (c)
+                    {
+                        case '1':   //Tür auf
+                            //Thread test = new Thread(openDoor);
+                            //test.Start();
+                            break;
+                        case '2':   //Tür zu
+                            //btn_dev__doorClosed_Click(null, null);
+                            break;
+                        case '3':   //Fenster auf
+                            //btn_dev_WindowOpen_Click(null, null);
+                            break;
+                        case '4':   //Fenster zu
+                            //btn_dev_WindowClosed_Click(null, null);
+                            break;
+                        case '5':   //Feuer
+                            Thread test1 = new Thread(fireAlarm);
+                            test1.Start();
+                            test1.Join();
+                            break;
+                        case '6':   //Wasser 
+                            //btn_dev_WaterAlarm_Click(null, null);
+                            break;
+                        case '7':   //CO2
+                            //btn_dev_CO2Alarm_Click(null, null);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void fireAlarm()
+        {
+            btn_dev_FireAlarm_Click(null, null);
+        }
+
+        private void openDoor()
+        {
+            btn_dev_doorOpen_Click(null, null);
+        }
+
+        private void evaluate_Data(object sender, SerialDataReceivedEventArgs e)
+        {
+            string message = port.ReadExisting();
+
+            foreach (char c in message)
+            {
+
+
+                switch (c)
+                {
+                    case '1':   //Tür auf
+                        btn_dev_doorOpen_Click(null, null);
+                        break;
+                    case '2':   //Tür zu
+                        btn_dev__doorClosed_Click(null, null);
+                        break;
+                    case '3':   //Fenster auf
+                        btn_dev_WindowOpen_Click(null, null);
+                        break;
+                    case '4':   //Fenster zu
+                        btn_dev_WindowClosed_Click(null, null);
+                        break;
+                    case '5':   //Feuer
+                        btn_dev_FireAlarm_Click(null, null);
+                        break;
+                    case '6':   //Wasser 
+                        btn_dev_WaterAlarm_Click(null, null);
+                        break;
+                    case '7':   //CO2
+                        btn_dev_CO2Alarm_Click(null, null);
+                        break;
+                    default:
+                        break;
+                }
+            }
+           
+        }
+
         private void keyPressed(object sender, KeyPressEventArgs e)
         {
             switch (e.KeyChar)
@@ -339,9 +440,11 @@ namespace MalteserSmartHome
 
         private void btn_dev_FireAlarm_Click(object sender, EventArgs e)
         {
+            halt = true;
             //this.Hide();
             EmergencyFire ef = new EmergencyFire(this);
             ef.Show();
+
         }
 
         private void btn_dev_WaterAlarm_Click(object sender, EventArgs e)
