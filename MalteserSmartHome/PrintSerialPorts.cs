@@ -17,11 +17,21 @@ namespace MalteserSmartHome
         public PrintSerialPorts()
         {
             InitializeComponent();
-            foreach(string s in SerialPort.GetPortNames())
-            {
-                richTextBox1.Text =richTextBox1.Text + Environment.NewLine + s;
-            }
             
+            
+        }
+
+        public void printerror(string s)
+        {
+            richTextBox1.Text= richTextBox1.Text + Environment.NewLine + s;
+        }
+
+        public void ports()
+        {
+            foreach (string s in SerialPort.GetPortNames())
+            {
+                richTextBox1.Text = richTextBox1.Text + Environment.NewLine + s;
+            }
         }
     }
 }

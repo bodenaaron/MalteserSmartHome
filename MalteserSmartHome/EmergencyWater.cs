@@ -80,9 +80,8 @@ namespace MalteserSmartHome
 
         private void btn_EmergencyWater_callFamily_Click(object sender, EventArgs e)
         {
-            this.Hide();
             FamilyCalling fc = new FamilyCalling();
-            fc.Show();
+            fc.ShowDialog();
         }
     }
 }

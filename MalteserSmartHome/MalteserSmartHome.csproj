@@ -157,6 +157,9 @@
     <EmbeddedResource Include="EmergencyCalling.resx">
       <DependentUpon>EmergencyCalling.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmergencyCO2.resx">
+      <DependentUpon>EmergencyCO2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmergencyFire.resx">
       <DependentUpon>EmergencyFire.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,6 +237,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AuflegenIMG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\COALAR%3b.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

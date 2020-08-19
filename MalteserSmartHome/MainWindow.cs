@@ -24,19 +24,19 @@ namespace MalteserSmartHome
             {
                 windowOpen = value;
 
-                if (value == true&&value!=windowOpen)
+                if (value == true)
                 {
                     //this.Hide();
                     ActionWindowOpen wo = new ActionWindowOpen();
                     wo.ShowDialog();
-                    lbl_window.Text = "Fenster offen";
+                    lbl_window.Text = "         Fenster offen";
                 }
-                else if(value==false&&value!=windowOpen)
+                else if(value==false)
                 {
                     //Hide();
                     ActionWindowClosed wc = new ActionWindowClosed();
                     wc.ShowDialog();
-                    lbl_window.Text = "Fenster geschlossen";
+                    lbl_window.Text = "         Fenster geschlossen";
                 }
             }
         }
@@ -84,14 +84,14 @@ namespace MalteserSmartHome
             {
                 doorOpen = value;
 
-                if (value==true&&value!=doorOpen)
+                if (value==true)
                 {
                     //this.Hide();
                     ActionDoorOpen doo = new ActionDoorOpen();
                     doo.ShowDialog();
                     lbl_doors.Text = "Tür offen";
                 }
-                else if(value==false&&value!=doorOpen)
+                else if(value==false)
                 {
                     //Hide();
                     ActionDoorClosed dc = new ActionDoorClosed();
@@ -113,7 +113,7 @@ namespace MalteserSmartHome
                     //this.Hide();
                     EmergencyCO2 co2 = new EmergencyCO2();
                     co2.ShowDialog();
-                    Show();
+                    
                 }
             }
         }
@@ -121,6 +121,7 @@ namespace MalteserSmartHome
 
         private int visibleStatus = 0;
         System.Windows.Forms.Timer t = null;
+        System.Windows.Forms.Timer readPortTimer = null;
         private int sound;
 
         public MainWindow()
@@ -130,8 +131,9 @@ namespace MalteserSmartHome
             InitializeComponent();
             InitializeCustomComponents();
 
-            //PrintSerialPorts ps = new PrintSerialPorts();
-            //ps.ShowDialog();
+            PrintSerialPorts pss = new PrintSerialPorts();
+            //pss.ports();
+            //pss.ShowDialog();
             //Fenstergröße an Pi Display anpassen
             ////this.MaximumSize = new Size(800, 480);
             ////this.MinimumSize = new Size(800, 480);
@@ -143,7 +145,8 @@ namespace MalteserSmartHome
             this.Cursor = Cursors.No;
             Cursor.Dispose();
 
-            port.DataReceived += new SerialDataReceivedEventHandler(evaluate_Data);
+            //port.DataReceived += new SerialDataReceivedEventHandler(evaluate_Data);
+
 
             try
             {
@@ -151,21 +154,26 @@ namespace MalteserSmartHome
             }
             catch(Exception e)
             {
-
+                PrintSerialPorts ps = new PrintSerialPorts();
+                ps.printerror(e.Message);
+                ps.ShowDialog();
             }
-            port.ReadTimeout = 500;
-            port.WriteTimeout = 500;
 
+            port.ReadTimeout = 100;
+            port.WriteTimeout = 500;
+            startPortTimer();
 
         }
 
-        private void evaluate_Data(object sender, SerialDataReceivedEventArgs e)
+        private void evaluate_Data(object o, EventArgs e)
         {
-            string message = port.ReadExisting();
-            
-            foreach (char c in message)
+            try
             {
-                switch (c)
+                byte tempByte = (byte)port.ReadByte();
+
+                //MessageBox.Show(Convert.ToChar(tempByte).ToString(), "Das war kacke", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                switch (Convert.ToChar(tempByte))
                 {
                     case '1':   //Tür auf
                         DoorOpen = true;
@@ -180,14 +188,11 @@ namespace MalteserSmartHome
                         WindowOpen = false;
                         break;
                     case '5':   //Feuer
-                       
                         EmergencyFire ef = new EmergencyFire();
                         if (!ef.Focused)
                         {
                             ef.ShowDialog();
-                        }
-                        
-                        
+                        } 
                         break;
                     case '6':   //Wasser 
                         EmergencyWater ew = new EmergencyWater();
@@ -210,8 +215,12 @@ namespace MalteserSmartHome
                         break;
                 }
             }
-           
-        }        
+
+            catch(Exception es)
+            {
+            }
+            
+            }     
         
 
         private void startTimer()
@@ -223,6 +232,17 @@ namespace MalteserSmartHome
             t.Tick += new EventHandler(updateTimeAndDate);           
             t.Enabled = true;
         }
+
+        private void startPortTimer()
+        {
+            readPortTimer = new System.Windows.Forms.Timer
+            {
+                Interval = 500
+            };
+            readPortTimer.Tick += new EventHandler(evaluate_Data);
+            readPortTimer.Enabled = true;
+        }
+
 
         private void updateTimeAndDate(object sender, EventArgs e)
         {
@@ -237,6 +257,7 @@ namespace MalteserSmartHome
             btn_emergency.Width = 400;
             btn_emergency.Height = 100;
             btn_emergency.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btn_emergency.Text = "Rettungsdienst";
 
             btn_settings.Location = new Point(400, 0);
             btn_settings.Width = 400;
@@ -287,9 +308,9 @@ namespace MalteserSmartHome
             pnl_air.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             lbl_temperatur.Location = new Point(0,50);
-            lbl_temperatur.Text = "Temperatur: 21°C";
+            lbl_temperatur.Text = "      Temperatur:         21°C";
             lbl_humidity.Location = new Point(0, 150);
-            lbl_humidity.Text = "Luftfeuchtigkeit: 40%";
+            lbl_humidity.Text = "      Luftfeuchtigkeit:  40%";
 
             pnl_security.Location = new Point(100, 100);
             pnl_security.Width = 600;
@@ -298,9 +319,9 @@ namespace MalteserSmartHome
             pnl_security.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             lbl_window.Location = new Point(0, 50);
-            lbl_window.Text = "Fenster geschlossen";
+            lbl_window.Text = "         Fenster geschlossen";
             lbl_doors.Location = new Point(0, 150);
-            lbl_doors.Text = "Türen geschlossen";
+            lbl_doors.Text = "         Türen geschlossen";
 
             pnl_dev.Location = new Point(100, 100);
             pnl_dev.Width = 600;
