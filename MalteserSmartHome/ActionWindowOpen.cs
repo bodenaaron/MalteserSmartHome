@@ -19,7 +19,7 @@ namespace MalteserSmartHome
         {
             t = new System.Windows.Forms.Timer
             {
-                Interval = 5000
+                Interval = 2500
             };
             t.Tick += new EventHandler(kill);
             t.Enabled = true;

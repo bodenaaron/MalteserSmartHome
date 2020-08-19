@@ -64,6 +64,7 @@
             this.btn_CO_emergency.TabIndex = 5;
             this.btn_CO_emergency.Text = "button1";
             this.btn_CO_emergency.UseVisualStyleBackColor = true;
+            this.btn_CO_emergency.Click += new System.EventHandler(this.btn_CO_emergency_Click);
             // 
             // btn_CO_Family
             // 
@@ -75,6 +76,7 @@
             this.btn_CO_Family.TabIndex = 4;
             this.btn_CO_Family.Text = "button1";
             this.btn_CO_Family.UseVisualStyleBackColor = true;
+            this.btn_CO_Family.Click += new System.EventHandler(this.btn_CO_Family_Click);
             // 
             // btn_CO_nothing
             // 
@@ -85,6 +87,7 @@
             this.btn_CO_nothing.TabIndex = 3;
             this.btn_CO_nothing.Text = "button1";
             this.btn_CO_nothing.UseVisualStyleBackColor = true;
+            this.btn_CO_nothing.Click += new System.EventHandler(this.btn_CO_nothing_Click);
             // 
             // EmergencyCO2
             // 

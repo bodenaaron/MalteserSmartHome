@@ -82,6 +82,7 @@ namespace MalteserSmartHome
         {
             FamilyCalling fc = new FamilyCalling();
             fc.ShowDialog();
+            Close();
         }
     }
 }

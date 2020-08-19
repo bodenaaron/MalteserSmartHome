@@ -167,56 +167,70 @@ namespace MalteserSmartHome
 
         private void evaluate_Data(object o, EventArgs e)
         {
+            
+            
             try
             {
-                byte tempByte = (byte)port.ReadByte();
+                
+
 
                 //MessageBox.Show(Convert.ToChar(tempByte).ToString(), "Das war kacke", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                EmergencyFire ef = new EmergencyFire();
+                EmergencyWater ew = new EmergencyWater();
+                AirQualityAlarm aq = new AirQualityAlarm();
+                EmergencyCO2 co2 = new EmergencyCO2();
+                EmergencyCalling ec = new EmergencyCalling();
 
-                switch (Convert.ToChar(tempByte))
-                {
-                    case '1':   //Tür auf
-                        DoorOpen = true;
-                        break;
-                    case '2':   //Tür zu
-                        DoorOpen = false;
-                        break;
-                    case '3':   //Fenster auf
-                        WindowOpen = true;
-                        break;
-                    case '4':   //Fenster zu
-                        WindowOpen = false;
-                        break;
-                    case '5':   //Feuer
-                        EmergencyFire ef = new EmergencyFire();
-                        if (!ef.Focused)
-                        {
+
+                    switch (Convert.ToChar((byte)port.ReadByte()))
+                    {
+                        case '1':   //Tür auf
+                            DoorOpen = true;
+                            break;
+                        case '2':   //Tür zu
+                            DoorOpen = false;
+                            break;
+                        case '3':   //Fenster auf
+                            WindowOpen = true;
+                            break;
+                        case '4':   //Fenster zu
+                            WindowOpen = false;
+                            break;
+                        case '5':   //Feuer
+
+
                             ef.ShowDialog();
-                        } 
-                        break;
-                    case '6':   //Wasser 
-                        EmergencyWater ew = new EmergencyWater();
-                        if (!ew.Focused)
-                        {
+
+                            break;
+                        case '6':   //Wasser 
+
+
+                            //MessageBox.Show(ef.Created+"||"+ef.Focused+"||"+ef.ContainsFocus, "Das war kacke", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             ew.ShowDialog();
-                        }
-                        break;
-                    case '7':   //CO2h
-                        CO2 = 51;
-                        break;
-                    case '8':
-                        AirQualityAlarm aq = new AirQualityAlarm();
-                        if (!aq.Focused)
-                        {
+
+                            break;
+                        case '7':   //CO2h
+
+
+                            co2.ShowDialog();
+
+                            break;
+                        case '8':
+
+
                             aq.ShowDialog();
-                        }
-                        break;
-                    default:
-                        break;
-                }
+
+                            break;
+                        case '9':
+                            ec.ShowDialog();
+                            break;
+                        default:
+                            break;
+                    }
+                
             }
 
-            catch(Exception es)
+            catch (Exception es)
             {
             }
             
@@ -308,7 +322,7 @@ namespace MalteserSmartHome
             pnl_air.Font = new System.Drawing.Font("Microsoft Tai Le", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
             lbl_temperatur.Location = new Point(0,50);
-            lbl_temperatur.Text = "      Temperatur:         21°C";
+            lbl_temperatur.Text = "      Temperatur:        21°C";
             lbl_humidity.Location = new Point(0, 150);
             lbl_humidity.Text = "      Luftfeuchtigkeit:  40%";
 
@@ -373,7 +387,7 @@ namespace MalteserSmartHome
 
         private void btn_settings_Click(object sender, EventArgs e)
         {
-            visibleStatus = 4;
+            visibleStatus = 3;
             selectStatus();
         }
 

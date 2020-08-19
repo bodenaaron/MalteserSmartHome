@@ -85,5 +85,43 @@ namespace MalteserSmartHome
             btn_CO_emergency.Font = new System.Drawing.Font("Microsoft Tai Le", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
         }
+
+        private void btn_EmergencyFire_falseAlarm_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btn_EmergencyFire_callFamily_Click(object sender, EventArgs e)
+        {
+            FamilyCalling fc = new FamilyCalling();
+            fc.ShowDialog();
+            Close();
+        }
+
+        private void btn_EmergencyFire_callEmergencyService_Click(object sender, EventArgs e)
+        {
+            EmergencyCalling ec = new EmergencyCalling();
+            ec.ShowDialog();
+            Close();
+        }
+
+        private void btn_CO_nothing_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btn_CO_Family_Click(object sender, EventArgs e)
+        {
+            FamilyCalling fc = new FamilyCalling();
+            fc.ShowDialog();
+            Close();
+        }
+
+        private void btn_CO_emergency_Click(object sender, EventArgs e)
+        {
+            EmergencyCalling ec = new EmergencyCalling();
+            ec.ShowDialog();
+            Close();
+        }
     }
 }
